@@ -6,7 +6,7 @@ function Perfil() {
   return (  
     <>
     <Header /> 
-    
+    Perfil 
   </> 
        
   )
