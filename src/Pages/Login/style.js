@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ContainerLogin = styled.div`;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +9,8 @@ export const ContainerLogin = styled.div`;
 `;
 
 export const WrapperLogin = styled.div`
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
   width: 384px;
   background: #fff;
   box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.15);
