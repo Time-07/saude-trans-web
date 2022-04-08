@@ -18,15 +18,17 @@ export const Logo = styled.img`
 `;
 
 export const Icone = styled.img`
-  transition: 0.5s;
-  width: 15px;
+  margin-left:10px;
+  width: 14px;
+  height: 8px;
+  transition: 0.3s;
     
   img {
     &:hover {
       transform: rotate(-180deg);
     }
   }
- 
+
 `;
 export const Dropdown = styled.div`
   margin-right: 120px;
@@ -60,10 +62,10 @@ export const Dropdowncontent = styled.div`
   background-color: #D7D7D7;
   z-index: 1;
   border-radius:10px;
+
   a {
     &:hover {
       background-color: #f1f1f1 ;
-
     }
   }
 `;

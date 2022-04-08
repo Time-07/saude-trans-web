@@ -1,7 +1,7 @@
 import React from "react";
 import { Container,  Logo, Login, Dropdown,Dropbtn, Dropdowncontent, Icone } from "./style";
 import LogoImg from "../../assets/logoo.jpeg"
-import Iconee from "../../assets/iconseta.png"
+import Iconee from "../../assets/seta-abrir.svg"
 
 
 
@@ -19,8 +19,8 @@ const Header = () => {
           </Dropbtn>          
           <Dropbtn>Sou Profissional <Icone src={Iconee} alt="logoIoasys" />     
           <Dropdowncontent className="container">
-            <Login to="/cadastro"><Icone src={Iconee} alt="logoIoasys" />  Cadastro</Login>                       
-            <Login to="/login"><Icone src={Iconee} alt="logoIoasys" />  Login</Login>              
+            <Login to="/cadastro"><Icone src={Iconee} alt="logoIoasys" />Cadastro</Login>                       
+            <Login to="/login"><Icone src={Iconee} alt="logoIoasys" />Login</Login>              
           </Dropdowncontent>
           </Dropbtn>  
         </Dropdown>  
