@@ -1,9 +1,14 @@
 import React from 'react'
 import Header from "../../components/Header"
-import { ContainerCadastro, TitleDoc, Detalhe, Text, Profissionais, Medico, TextOpcao, OpcaoCadastro, Opcao, Psicologo } from "./style";
+import { useCadastro } from '../../context/useCadastro';
+import MedicoForm from './Form/Medico';
+import PsicologoForm from './Form/Psicologo';
+import TipoProfissional from './Form/TipoProfissional';
+import { ContainerCadastro, TitleDoc, Detalhe, Text, OpcaoCadastro } from "./style";
 
 
  const Cadastro = () => {
+   const {step} = useCadastro()
   return (        
   <>
     <Header />
@@ -12,14 +17,10 @@ import { ContainerCadastro, TitleDoc, Detalhe, Text, Profissionais, Medico, Text
           <Detalhe></Detalhe>
           <Text>Antes de iniciarmos o Cadastro, selecione abaixo o seu tipo de atuação.</Text> 
       <OpcaoCadastro>
-        <Profissionais>
-          <Opcao><Medico htmlFor=""></Medico></Opcao>    
-          <TextOpcao > Médico(a)</TextOpcao>         
-        </Profissionais> 
-        <Profissionais>
-          <Opcao><Psicologo htmlFor=""></Psicologo></Opcao>    
-          <TextOpcao>Psicólogo(a)</TextOpcao>         
-        </Profissionais>        
+
+     {step === 1 && <TipoProfissional />    }  
+     {step === 2 && <MedicoForm />    }   
+     {step === 3 && <PsicologoForm />    }    
         </OpcaoCadastro>    
       </ContainerCadastro>
   </>            
