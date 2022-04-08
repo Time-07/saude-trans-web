@@ -47,6 +47,7 @@ flex-direction:row;
 export const Profissionais = styled.div`
  display:flex;
  flex-direction:column;
+ cursor: pointer;
 `;
 
 export const Opcao = styled.div`
