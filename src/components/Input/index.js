@@ -1,21 +1,18 @@
 import React from 'react';
-import { Container } from "./style"
+import { Container } from './style';
 
-
-function Input ({label, ...props}) {
-
- 
+function Input({ label, ...props }) {
   return (
     <Container error={props.errors}>
-       <div id="float-label">
-      <input {...props}/>
+      <div id='float-label'>
+        <input {...props} />
 
-     <label htmlFor={label} className={props.value ? "Active": null} >
-     {label}
-      </label>
+        <label htmlFor={label} className={props.value ? 'Active' : null}>
+          {label}
+        </label>
       </div>
     </Container>
-  )
+  );
 }
 
 export default Input;

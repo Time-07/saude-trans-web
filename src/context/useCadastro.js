@@ -6,19 +6,20 @@ export function CadastroProvider({ children }) {
   const [step, setStep] = useState(1);
   const [data, setData] = useState({});
 
-
-
   return (
-    <CadastroContext.Provider value={{
-      step, setStep,
-      data, setData
-    
-    }}>
+    <CadastroContext.Provider
+      value={{
+        step,
+        setStep,
+        data,
+        setData,
+      }}
+    >
       {children}
     </CadastroContext.Provider>
-  )
+  );
 }
 
 export const useCadastro = () => {
   return useContext(CadastroContext);
-}
+};

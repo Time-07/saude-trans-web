@@ -1,32 +1,45 @@
-import React from 'react'
-import Header from "../../components/Header"
+import React from 'react';
+import Header from '../../components/Header';
 import { useCadastro } from '../../context/useCadastro';
 import MedicoForm from './Form/Medico';
 import PsicologoForm from './Form/Psicologo';
 import TipoProfissional from './Form/TipoProfissional';
-import { ContainerCadastro, TitleDoc, Detalhe, Text, OpcaoCadastro } from "./style";
+import {
+  ContainerCadastro,
+  Wrapper,
+  ContanierTelaCadastro,
+  TitleDoc,
+  Detalhe,
+  Text,
+  OpcaoCadastro,
+  ContainerTitle,
+} from './style';
 
+const Cadastro = () => {
+  const { step } = useCadastro();
 
- const Cadastro = () => {
-   const {step} = useCadastro()
-  return (        
-  <>
-    <Header />
-      <ContainerCadastro> 
-        <TitleDoc>Cadastro</TitleDoc>
-          <Detalhe></Detalhe>
-          <Text>Antes de iniciarmos o Cadastro, selecione abaixo o seu tipo de atuação.</Text> 
-      <OpcaoCadastro>
+  return (
+    <ContanierTelaCadastro>
+      <Header />
+      <Wrapper>
+        <ContainerCadastro>
+          <ContainerTitle>
+            <TitleDoc>Cadastro</TitleDoc>
+            <Detalhe value='32' max='100'></Detalhe>
+            <Text>
+              Antes de iniciarmos o Cadastro, selecione abaixo o seu tipo de
+              atuação.
+            </Text>
+          </ContainerTitle>
+          <OpcaoCadastro>
+            {step === 1 && <TipoProfissional />}
+            {step === 2 && <MedicoForm />}
+            {step === 3 && <PsicologoForm />}
+          </OpcaoCadastro>
+        </ContainerCadastro>
+      </Wrapper>
+    </ContanierTelaCadastro>
+  );
+};
 
-     {step === 1 && <TipoProfissional />    }  
-     {step === 2 && <MedicoForm />    }   
-     {step === 3 && <PsicologoForm />    }    
-        </OpcaoCadastro>    
-      </ContainerCadastro>
-  </>            
-  )
- }
-    
-       
-
-export default Cadastro
+export default Cadastro;

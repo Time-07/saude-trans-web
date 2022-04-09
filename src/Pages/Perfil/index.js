@@ -1,15 +1,13 @@
-import React from "react";
-import Header from "../../components/Header";
-
+import React from 'react';
+import Header from '../../components/Header';
 
 function Perfil() {
-  return (  
+  return (
     <>
-    <Header /> 
-    Perfil 
-  </> 
-       
-  )
+      <Header />
+      Perfil
+    </>
+  );
 }
 
 export default Perfil;
