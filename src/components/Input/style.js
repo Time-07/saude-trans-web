@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
   #float-label {
     display: flex;
     flex-direction: column;
-    min-width: 350px;
+    width: 100%;
     position: relative;
-    border: 1px solid ${props => (props.error ? '#c0392b' : '#999')};
+    border: 1px solid ${props => (props.errors ? '#c0392b' : '#999')};
     border-radius: 8px;
   }
 
@@ -17,7 +21,7 @@ export const Container = styled.div`
     border: none;
     padding: 14px 16px 10px 10px;
     outline: 0;
-    font-color: ${props => (props.error ? '#c0392b' : '#999')};
+    color: ${props => (props.errors ? '#c0392b' : '#000')};
     border-radius: 8px;
     background: #fff;
     font-size: 16px;
@@ -26,7 +30,7 @@ export const Container = styled.div`
   #float-label label {
     font-size: 16px;
     padding: 0 12px;
-    color: #999;
+    color: #000;
     pointer-events: none;
     position: absolute;
     transform: translate(0, 24px) scale(1);
@@ -40,4 +44,15 @@ export const Container = styled.div`
   #float-label .Active {
     transform: translate(0, 8px) scale(0.75);
   }
+`;
+
+export const ErrorInput = styled.div`
+  color: #c0392b;
+  font-size: 14px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+  text-align: left;
+  margin-left: 14px;
 `;

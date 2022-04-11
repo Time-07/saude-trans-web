@@ -1,16 +1,16 @@
 import React from 'react';
-import { Container } from './style';
+import { Container, ErrorInput } from './style';
 
-function Input({ label, ...props }) {
+function Input({ label, errors, errorMsg, ...props }) {
   return (
-    <Container error={props.errors}>
-      <div id='float-label'>
+    <Container errors={errors}>
+      <div id="float-label">
         <input {...props} />
-
         <label htmlFor={label} className={props.value ? 'Active' : null}>
           {label}
         </label>
       </div>
+      {errors ? <ErrorInput>{errorMsg}</ErrorInput> : null}
     </Container>
   );
 }
