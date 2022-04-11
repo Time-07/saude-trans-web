@@ -20,6 +20,7 @@ export const WrapperLogin = styled.div`
 export const Form = styled.form`
   display: flex;
   gap: 30px;
+  width: 90%;
   flex-direction: column;
 `;
 
@@ -50,7 +51,7 @@ export const Input = styled.input`
   transition: all 0.1s linear;
 `;
 
-export const Alerta = styled.div`
+export const Alerta = styled.p`
   color: #c0392b;
   font-size: 14px;
 `;
