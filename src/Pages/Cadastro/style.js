@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ContanierTelaCadastro = styled.div`
   display: flex;
@@ -12,8 +13,11 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  padding-top: 80px;
   height: 100%;
+  padding-bottom: 80px;
+  overflow: auto;
+  width: 100%;
 `;
 
 export const ContainerCadastro = styled.div`
@@ -21,13 +25,15 @@ export const ContainerCadastro = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 592px;
   min-height: 480px;
+  width: 612px;
+  padding: 20px;
   gap: 20px;
   background: #fff;
   box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
 `;
+
 export const ContainerTitle = styled.div`
   display: flex;
   justify-content: center;
@@ -53,6 +59,8 @@ export const Detalhe = styled.progress`
   width: 405px;
   height: 8px;
 
+  transition: width 2s ease-in-out;
+
   ::-webkit-progress-bar {
     background-color: #c4c4c4;
     border-radius: 10px;
@@ -75,9 +83,21 @@ export const Text = styled.p`
 
 export const OpcaoCadastro = styled.div`
   display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
+
+export const ContainerFormTipoProfissional = styled.div`
+  display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
+`;
+
+export const ContainerForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 export const Profissionais = styled.div`
@@ -124,36 +144,63 @@ export const Psicologo = styled.label`
   line-height: 40px;
   color: #000000;
 `;
-
+export const Texto = styled.p`
+  color: #000;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  width: 526px;
+`;
 export const ButtonCadastro = styled.button`
-  padding: 16px 92px;
-  margin: auto;
   border-radius: 10px;
   border: none;
   cursor: pointer;
   width: 256px;
   height: 64px;
   color: #000;
-
+  margin-top: 1rem;
   font-family: 'Inter', sans-serif;
-
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
-  margin-bottom: 20px;
 
   &:hover {
     background-color: #cacaca;
   }
 `;
 
-export const ContainerCRM = styled.div`
+export const FormContainer = styled.form`
   display: flex;
-  background: pink;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
 `;
+
+export const FormCadastro = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 16px;
+`;
+
+export const ContainerInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 16px;
+`;
+
 export const Informacoes = styled.div`
-  width: 527px;
-  height: 96px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
   background: #efefef;
   border-radius: 8px;
   font-family: 'Inter';
@@ -162,4 +209,41 @@ export const Informacoes = styled.div`
   font-size: 14px;
   line-height: 24px;
   color: #000000;
+  padding: 10px;
+`;
+
+export const TextoFinal = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  color: #000000;
+`;
+export const TextoInfo = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  color: #000000;
+`;
+export const CadastroFinal = styled(Link)`
+  color: #a4a4a4;
+  margin: auto;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
+`;
+export const Especialidades = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 24px 8px;
+  border: 1px solid #a4a4a4;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 192px;
+  width: 100%;
 `;
