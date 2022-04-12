@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik, ErrorMessage } from 'formik';
 import { useCadastro } from '../../../context/useCadastro';
+import { conselhoMask } from '../../../util/maskInput';
 import * as yup from 'yup';
 import {
   FormControl,
@@ -55,7 +56,7 @@ const PsicologoForm = () => {
           >
             <div style={{ width: '50%' }}>
               <Input
-                id="numeroConselho"
+                name="numeroConselho"
                 type="text"
                 label="CRP"
                 errors={
@@ -63,7 +64,7 @@ const PsicologoForm = () => {
                 }
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.numeroConselho}
+                value={conselhoMask(formik.values.numeroConselho)}
                 errorMsg={formik.errors.numeroConselho}
               />
             </div>
