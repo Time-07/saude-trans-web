@@ -4,6 +4,8 @@ import { useCadastro } from '../../context/useCadastro';
 import MedicoForm from './Form/Medico';
 import PsicologoForm from './Form/Psicologo';
 import TipoProfissional from './Form/TipoProfissional';
+import CadastroForm from './Form/CadastroForm';
+import CadastroFinal from './Form/CadastroFinal';
 import {
   ContainerCadastro,
   Wrapper,
@@ -23,19 +25,22 @@ const Cadastro = () => {
       <Header />
       <Wrapper>
         <ContainerCadastro>
-          <ContainerTitle>
-            <TitleDoc>Cadastro</TitleDoc>
-            <Detalhe value='32' max='100'></Detalhe>
-            <Text>
-              Antes de iniciarmos o Cadastro, selecione abaixo o seu tipo de
-              atuação.
-            </Text>
-          </ContainerTitle>
-          <OpcaoCadastro>
-            {step === 1 && <TipoProfissional />}
-            {step === 2 && <MedicoForm />}
-            {step === 3 && <PsicologoForm />}
-          </OpcaoCadastro>
+          {step !== 5 ? (
+            <>
+              <ContainerTitle>
+                <TitleDoc>Cadastro</TitleDoc>
+                <Detalhe value={step} max="5" />
+              </ContainerTitle>
+              <OpcaoCadastro>
+                {step === 1 && <TipoProfissional />}
+                {step === 2 && <MedicoForm />}
+                {step === 3 && <PsicologoForm />}
+                {step === 4 && <CadastroForm />}
+              </OpcaoCadastro>
+            </>
+          ) : (
+            <CadastroFinal />
+          )}
         </ContainerCadastro>
       </Wrapper>
     </ContanierTelaCadastro>
