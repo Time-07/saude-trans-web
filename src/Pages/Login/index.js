@@ -1,5 +1,7 @@
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../modules/user';
+import { useCadastro } from '../../context/useCadastro';
 import * as yup from 'yup';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
@@ -19,6 +21,7 @@ import {
 
 const Login = () => {
   const navigate = useNavigate();
+  const { error, setError, loading, setLoading } = useCadastro();
 
   const formik = useFormik({
     initialValues: {
@@ -32,9 +35,17 @@ const Login = () => {
         .required('O campo é obrigatório'),
       password: yup.string().required('O campo é obrigatório'),
     }),
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-      navigate('/perfil');
+    onSubmit: async values => {
+      try {
+        setLoading(true);
+        await loginUser(values);
+        navigate('/perfil');
+      } catch (error) {
+        setError(error.message);
+        console.log(error.response.data);
+      } finally {
+        setLoading(false);
+      }
     },
   });
 
@@ -47,10 +58,10 @@ const Login = () => {
             <Title>login</Title>
             <WrapperInput>
               <Input
-                type='email'
-                id='email'
-                label='Email'
-                errors={formik.touched.email && formik.errors.email}
+                type="email"
+                id="email"
+                label="Email"
+                errors={(formik.touched.email && formik.errors.email) || error}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -62,10 +73,12 @@ const Login = () => {
 
             <WrapperInput>
               <Input
-                type='password'
-                id='password'
-                label='Senha'
-                errors={formik.touched.password && formik.errors.password}
+                type="password"
+                id="password"
+                label="Senha"
+                errors={
+                  (formik.touched.password && formik.errors.password) || error
+                }
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
@@ -73,14 +86,17 @@ const Login = () => {
               {formik.touched.password && formik.errors.password ? (
                 <Alerta>{formik.errors.password}</Alerta>
               ) : null}
+              {error && <Alerta>Usuário ou senha incorretos</Alerta>}
               <EsquecerSenha>Esqueci minha senha</EsquecerSenha>
             </WrapperInput>
 
-            <ButtonLogin type='submit'>Entrar</ButtonLogin>
+            <ButtonLogin type="submit" disabled={loading}>
+              Entrar
+            </ButtonLogin>
 
             <ContainerCriar>
               <TextCadastro> Ainda não tem uma conta?</TextCadastro>
-              <Cadastro to='/login/cadastro'>Cadastre-se</Cadastro>
+              <Cadastro to="/login/cadastro">Cadastre-se</Cadastro>
             </ContainerCriar>
           </Form>
         </WrapperLogin>
