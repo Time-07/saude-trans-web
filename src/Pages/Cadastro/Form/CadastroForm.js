@@ -1,6 +1,8 @@
 import React from 'react';
 import { useFormik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { cpfMask } from '../../../util/maskInput';
+import { RegisterUser } from '../../../modules/user';
 import {
   FormControl,
   FormHelperText,
@@ -19,6 +21,7 @@ import {
   Texto,
   ContainerInput,
   Especialidades,
+  TitleEspecialista,
 } from '../style.js';
 
 import Input from '../../../components/Input';
@@ -27,30 +30,47 @@ import { useCadastro } from '../../../context/useCadastro';
 const CadastroForm = () => {
   const { setStep, setData, data } = useCadastro();
 
-  console.log(data);
-
   const formik = useFormik({
     initialValues: {
       email: '',
       senha: '',
-      numeroConselho: data.numeroConselho,
-      estadoConselho: data.estadoConselho,
       nome: '',
       identidadeGenero: '',
       cpf: '',
+      especialidade: '',
+      confirmaSenha: '',
     },
     validationSchema: yup.object({
+      nome: yup.string().required('O campo é obrigatório'),
       email: yup.string().required('O campo é obrigatório'),
       senha: yup.string().required('O campo é obrigatório'),
-      numeroConselho: yup.string().required('O campo é obrigatório'),
-      estadoConselho: yup.string().required('O campo é obrigatório'),
-      nome: yup.string().required('O campo é obrigatório'),
+      confirmaSenha: yup
+        .string()
+        .oneOf([yup.ref('senha'), null], 'Senha precisa ser igual'),
       identidadeGenero: yup.string().required('O campo é obrigatório'),
-      cpf: yup.number().required('O campo é obrigatório'),
+      especialidade: yup.string().required('O campo é obrigatório'),
+      cpf: yup
+        .string()
+        .min(11, 'dados incompleto')
+        .required('O campo é obrigatório'),
     }),
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-      setStep(5);
+    onSubmit: async values => {
+      const dataForm = {
+        name: values.name,
+        email: values.email,
+        password: values.senha,
+        cpf: values.cpf,
+        gender: values.identidadeGenero,
+        specialty: values.especialidade,
+        crmCrp: data.numeroConselho,
+      };
+
+      try {
+        await RegisterUser(dataForm);
+        setStep(5);
+      } catch (error) {
+        Alerta('Erro ao cadastrar', 'error');
+      }
     },
   });
 
@@ -63,7 +83,7 @@ const CadastroForm = () => {
       <FormCadastro onSubmit={formik.handleSubmit} noValidate>
         <ContainerInput>
           <Input
-            id="email"
+            name="email"
             type="email"
             label="Email"
             errors={formik.touched.email && formik.errors.email}
@@ -75,7 +95,7 @@ const CadastroForm = () => {
         </ContainerInput>
         <ContainerInput>
           <Input
-            id="senha"
+            name="senha"
             type="password"
             label="Senha"
             errors={formik.touched.senha && formik.errors.senha}
@@ -87,98 +107,20 @@ const CadastroForm = () => {
         </ContainerInput>
         <ContainerInput>
           <Input
-            id="senha"
+            name="confirmaSenha"
             type="password"
             label="Confirmar senha"
-            errors={formik.touched.senha && formik.errors.senha}
+            errors={formik.touched.confirmaSenha && formik.errors.confirmaSenha}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.senha}
-            errorMsg={formik.errors.senha}
+            value={formik.values.confirmaSenha}
+            errorMsg={formik.errors.confirmaSenha}
           />
         </ContainerInput>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            marginTop: '1rem',
-            width: '100%',
-            gap: ' 20px',
-            justifyContent: 'center',
-          }}
-        >
-          <div style={{ width: '50%' }}>
-            <Input
-              id="numeroConselho"
-              type="text"
-              label="CRM/CRP"
-              disabled
-              errors={
-                formik.touched.numeroConselho && formik.errors.numeroConselho
-              }
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.numeroConselho}
-              errorMsg={formik.errors.numeroConselho}
-            />
-          </div>
-          <FormControl
-            fullWidth
-            disabled
-            error={
-              formik.errors.language && formik.touched.language ? true : false
-            }
-            sx={{ width: '50%' }}
-          >
-            <InputLabel id="selectlinguagem">Estado</InputLabel>
-            <Select
-              name="estadoConselho"
-              labelId="selectlinguagem"
-              value={formik.values.estadoConselho}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              label="Estado"
-              sx={{ height: '67px', borderRadius: '8px' }}
-            >
-              <MenuItem value="AC">Acre</MenuItem>
-              <MenuItem value="AL">Alagoas</MenuItem>
-              <MenuItem value="AP">Amapá</MenuItem>
-              <MenuItem value="AM">Amazonas</MenuItem>
-              <MenuItem value="BA">Bahia</MenuItem>
-              <MenuItem value="CE">Ceará</MenuItem>
-              <MenuItem value="DF">Distrito Federal</MenuItem>
-              <MenuItem value="ES">Espírito Santo</MenuItem>
-              <MenuItem value="GO">Goiás</MenuItem>
-              <MenuItem value="MA">Maranhão</MenuItem>
-              <MenuItem value="MT">Mato Grosso</MenuItem>
-              <MenuItem value="MS">Mato Grosso do Sul</MenuItem>
-              <MenuItem value="MG">Minas Gerais</MenuItem>
-              <MenuItem value="PA">Pará</MenuItem>
-              <MenuItem value="PB">Paraíba</MenuItem>
-              <MenuItem value="PR">Paraná</MenuItem>
-              <MenuItem value="PE">Pernambuco</MenuItem>
-              <MenuItem value="PI">Piauí</MenuItem>
-              <MenuItem value="RJ">Rio de Janeiro</MenuItem>
-              <MenuItem value="RN">Rio Grande do Norte</MenuItem>
-              <MenuItem value="RS">Rio Grande do Sul</MenuItem>
-              <MenuItem value="RO">Rondônia</MenuItem>
-              <MenuItem value="RR">Roraima</MenuItem>
-              <MenuItem value="SC">Santa Catarina</MenuItem>
-              <MenuItem value="SP">São Paulo</MenuItem>
-              <MenuItem value="SE">Sergipe</MenuItem>
-              <MenuItem value="TO">Tocantins</MenuItem>
-              <MenuItem value="EX">Estrangeiro</MenuItem>
-            </Select>
-            <FormHelperText sx={{ color: '#c0392b', fontSize: '14px' }}>
-              {formik.touched.estadoConselho && formik.errors.estadoConselho
-                ? formik.errors.estadoConselho
-                : null}
-            </FormHelperText>
-          </FormControl>
-        </div>
+
         <ContainerInput>
           <Input
-            id="nome"
+            name="nome"
             type="text"
             label="Nome"
             errors={formik.touched.nome && formik.errors.nome}
@@ -223,36 +165,77 @@ const CadastroForm = () => {
         </ContainerInput>
         <ContainerInput>
           <Input
-            id="cpf"
+            name="cpf"
             type="text"
             label="CPF"
             errors={formik.touched.cpf && formik.errors.cpf}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.cpf}
+            value={cpfMask(formik.values.cpf)}
             errorMsg={formik.errors.cpf}
           />
         </ContainerInput>
+
         <Especialidades style={{ marginTop: '1rem' }}>
-          <label>
-            <input type="radio" value="option1" checked={true} />
+          <TitleEspecialista>Especialidade médica</TitleEspecialista>
+          <label className="container">
             Endocrinologista
+            <input
+              type="radio"
+              name="especialidade"
+              value="endocrinologista"
+              checked={formik.values.especialidade === 'endocrinologista'}
+              onChange={() =>
+                formik.setFieldValue('especialidade', 'endocrinologista')
+              }
+            />
+            <span className="checkmark" />
           </label>
-
-          <label>
-            <input type="radio" value="option2" />
+          <label className="container">
             Ginecologista
+            <input
+              type="radio"
+              name="especialidade"
+              value="ginecologista"
+              checked={formik.values.especialidade === 'ginecologista'}
+              onChange={() =>
+                formik.setFieldValue('especialidade', 'ginecologista')
+              }
+            />
+            <span className="checkmark" />
+          </label>
+          <label className="container">
+            Psiquiatra
+            <input
+              type="radio"
+              name="especialidade"
+              value="psiquiatra"
+              checked={formik.values.especialidade === 'psiquiatra'}
+              onChange={() =>
+                formik.setFieldValue('especialidade', 'psiquiatra')
+              }
+            />
+            <span className="checkmark" />
+          </label>
+          <label className="container">
+            Urologista
+            <input
+              type="radio"
+              name="especialidade"
+              value="urologista"
+              checked={formik.values.especialidade === 'urologista'}
+              onChange={() =>
+                formik.setFieldValue('especialidade', 'urologista')
+              }
+            />
+            <span className="checkmark" />
           </label>
 
-          <label>
-            <input type="radio" value="option3" />
-            Psiquiatra
-          </label>
-          <label>
-            <input type="radio" value="option3" />
-            Urologista
-          </label>
+          {formik.touched.especialidade && formik.errors.especialidade ? (
+            <Alerta>{formik.errors.especialidade}</Alerta>
+          ) : null}
         </Especialidades>
+
         <Informacoes style={{ marginTop: '1rem' }}>
           <TextoFinal>antes de continuar</TextoFinal>
           <TextoInfo>
