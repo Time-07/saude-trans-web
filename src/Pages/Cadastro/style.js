@@ -236,6 +236,20 @@ export const CadastroFinal = styled(Link)`
   font-size: 14px;
   line-height: 24px;
 `;
+
+export const TitleEspecialista = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: #6f6f6f;
+
+  flex-grow: 0;
+  margin: 8px 0px;
+`;
+
 export const Especialidades = styled.div`
   display: flex;
   flex-direction: column;
@@ -244,6 +258,79 @@ export const Especialidades = styled.div`
   border: 1px solid #a4a4a4;
   box-sizing: border-box;
   border-radius: 8px;
-  height: 192px;
   width: 100%;
+
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .container input:checked ~ .checkmark {
+    background-color: #000;
+  }
+
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+`;
+
+export const ButtonFinal = styled(Link)`
+  border-radius: 10px;
+  color: #000;
+  cursor: pointer;
+  width: 256px;
+  height: 64px;
+  margin-top: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  background-color: #a4a4a4;
+  text-decoration: none;
+  &:hover {
+    background-color: #cacaca;
+  }
 `;
