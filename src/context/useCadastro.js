@@ -5,6 +5,8 @@ export const CadastroContext = createContext([]);
 export function CadastroProvider({ children }) {
   const [step, setStep] = useState(1);
   const [data, setData] = useState({});
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   return (
     <CadastroContext.Provider
@@ -13,6 +15,10 @@ export function CadastroProvider({ children }) {
         setStep,
         data,
         setData,
+        error,
+        setError,
+        loading,
+        setLoading,
       }}
     >
       {children}
