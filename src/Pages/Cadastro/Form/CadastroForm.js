@@ -230,6 +230,19 @@ const CadastroForm = () => {
             />
             <span className="checkmark" />
           </label>
+          <label className="container">
+            Psicólogo
+            <input
+              type="radio"
+              name="especialidade"
+              value="urologista"
+              checked={formik.values.especialidade === 'urologista'}
+              onChange={() =>
+                formik.setFieldValue('especialidade', 'urologista')
+              }
+            />
+            <span className="checkmark" />
+          </label>
 
           {formik.touched.especialidade && formik.errors.especialidade ? (
             <Alerta>{formik.errors.especialidade}</Alerta>
@@ -238,15 +251,16 @@ const CadastroForm = () => {
 
         <Informacoes style={{ marginTop: '1rem' }}>
           <TextoFinal>antes de continuar</TextoFinal>
-          <TextoInfo>
+          <TextoInfo style={{ marginTop: '1rem' }}>
             As pessoas trans sofrem diariamente desrespeito e violência verbal
             quanto à sua identidade de gênero. Um dos principais objetivos dessa
             plataforma é que essas pessoas possam ter atendimento médico sem
-            precisar se preocupar com esse tipo de discriminação. Portanto, ao
-            finalizar o seu cadastro você estará se comprometendo em tratar os
-            pacientes e as pacientes trans que você tiver contato com o máximo
-            respeito e empatia, assim como estará concordando com nossos demais
-            Termos de Uso e Responsabilidade. Combinado? ;)
+            precisar se preocupar com esse tipo de discriminação. <br />
+            <br />
+            Portanto, ao finalizar o seu cadastro você estará se comprometendo
+            em tratar os pacientes e as pacientes trans que você tiver contato
+            com o máximo respeito e empatia, assim como estará concordando com
+            nossos demais Termos de Uso e Responsabilidade. Combinado? ;)
           </TextoInfo>
         </Informacoes>
         <ButtonCadastro type="submit">Finalizar Cadastro</ButtonCadastro>
