@@ -63,7 +63,17 @@ const CadastroForm = () => {
         gender: values.identidadeGenero,
         specialty: values.especialidade,
         crmCrp: data.numeroConselho,
+        role_id: '6452f500-635a-4516-a999-bfad829d1ce7',
       };
+
+      // const datady = {
+      //   name: 'Naruto Uzumaki',
+      //   email: 'naruto@email.com',
+      //   password: 'Teste@123',
+      //   cpf: '1125484841',
+      //   gender: 'mas',
+      //   role_id: '6452f500-635a-4516-a999-bfad829d1ce7',
+      // };
 
       try {
         await RegisterUser(dataForm);
