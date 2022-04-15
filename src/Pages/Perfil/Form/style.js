@@ -1,15 +1,38 @@
 // import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Upload from '../../../assets/avatar.png';
 
-export const Container = styled.div`
+export const FormApresentacao = styled.form`
   width: 100%;
-  height: 104px;
   background: #fff;
   padding: 32px;
+  border-radius: 16px;
 `;
+
+export const FormProfissionais = styled.form`
+  width: 100%;
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+`;
+
+export const FormAtendimento = styled.form`
+  width: 100%;
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+`;
+export const FormContato = styled.form`
+  width: 100%;
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+`;
+
 export const Contato = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 32px;
 `;
 
@@ -26,6 +49,23 @@ export const ContainerInput = styled.div`
   width: 100%;
   padding-top: 16px;
 `;
+
+export const ContainerButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 16px;
+`;
+export const ContainerTextArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 5px;
+  padding-top: 16px;
+`;
+
 export const TitleEspecialista = styled.p`
   font-family: 'Inter';
   font-style: normal;
@@ -37,6 +77,69 @@ export const TitleEspecialista = styled.p`
 
   flex-grow: 0;
   margin: 8px 0px;
+`;
+
+export const Card = styled.div`
+  @keyframes open {
+    0% {
+      background-position: 166% -25%, 220% -69%;
+    }
+    100% {
+      background-position: 120% -5%, 200% -40%;
+    }
+  }
+
+  input[type='file'] {
+    display: none;
+  }
+
+  .img-wrap {
+    position: relative;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c4c4c4;
+  }
+  .img-upload:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 120px;
+    height: 120px;
+    background-image: url(${Upload});
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: #d1dbdfff;
+  }
+  .img-upload:hover:before {
+    opacity: 1;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  label {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #676767;
+  }
+
+  .status {
+    text-align: center;
+    max-width: 220px;
+    overflow-wrap: break-word;
+  }
 `;
 
 export const Especialidades = styled.div`
@@ -105,9 +208,11 @@ export const Especialidades = styled.div`
     background: white;
   }
 `;
+
 export const ButtonSalvar = styled.button`
   width: 99px;
   height: 56px;
+  cursor: pointer;
   background: #f5a9b8;
   border: 1px solid #cf8a97;
   box-sizing: border-box;
@@ -121,6 +226,7 @@ export const ButtonSalvar = styled.button`
   letter-spacing: 0.5px;
   color: #000000;
 `;
+
 export const TextoAtendimento = styled.h1`
   font-family: 'Fredoka';
   font-style: normal;
@@ -142,7 +248,7 @@ export const TextoContato = styled.h1`
   margin-top: 32px;
 `;
 export const TextArea = styled.textarea`
-  width: 528px;
+  width: 100%;
   height: 250px;
   background: #ffffff;
   border: 1px solid #d9d9d9;
@@ -151,6 +257,7 @@ export const TextArea = styled.textarea`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
+  padding: 16px;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5px;
