@@ -79,8 +79,6 @@ function Perfil() {
             </MenuButtons>
           </PerfilLeft>
           <PerfilRight>
-            <TextoContatoInfo>Informações do(a) contato</TextoContatoInfo>
-
             {active === 0 && <Profissional />}
             {active === 1 && <Atendimento />}
             {active === 2 && <Contato />}
