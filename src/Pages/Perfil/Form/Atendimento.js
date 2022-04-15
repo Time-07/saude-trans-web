@@ -1,19 +1,35 @@
 import React from 'react';
 import {
-  Container,
   Contato,
   TextoAtendimento,
   ContainerInput,
   Especialidades,
   TitleEspecialista,
+  FormAtendimento,
   ButtonSalvar,
+  ContainerButton,
 } from './style';
-
+import { useFormik, ErrorMessage } from 'formik';
+import * as yup from 'yup';
+import { Alerta } from '../../Login/style';
 import Input from '../../../components/Input';
 
 const Atendimento = () => {
+  const formik = useFormik({
+    initialValues: {
+      precoConsulta: '',
+      atendimento: '',
+      convenio: '',
+      banheiroLocal: '',
+    },
+    validationSchema: yup.object({}),
+    onSubmit: async values => {
+      console.log(values);
+    },
+  });
+
   return (
-    <Container>
+    <FormAtendimento onSubmit={formik.handleSubmit} noValidate>
       <Contato>
         <TextoAtendimento>Informações de Atendimento</TextoAtendimento>
       </Contato>
@@ -24,12 +40,10 @@ const Atendimento = () => {
           Presencial
           <input
             type="radio"
-            name="especialidade"
-            value="endocrinologista"
-            // checked={formik.values.especialidade === 'endocrinologista'}
-            // onChange={() =>
-            //   formik.setFieldValue('especialidade', 'endocrinologista')
-            // }
+            name="atendimento"
+            value="presencial"
+            checked={formik.values.atendimento === 'presencial'}
+            onChange={() => formik.setFieldValue('atendimento', 'presencial')}
           />
           <span className="checkmark" />
         </label>
@@ -37,12 +51,10 @@ const Atendimento = () => {
           Online
           <input
             type="radio"
-            name="especialidade"
-            value="ginecologista"
-            // checked={formik.values.especialidade === 'ginecologista'}
-            // onChange={() =>
-            //   formik.setFieldValue('especialidade', 'ginecologista')
-            // }
+            name="atendimento"
+            value="online"
+            checked={formik.values.atendimento === 'online'}
+            onChange={() => formik.setFieldValue('atendimento', 'online')}
           />
           <span className="checkmark" />
         </label>
@@ -50,28 +62,30 @@ const Atendimento = () => {
           Presencial e Online
           <input
             type="radio"
-            name="especialidade"
-            value="psiquiatra"
-            // checked={formik.values.especialidade === 'psiquiatra'}
-            // onChange={() => formik.setFieldValue('especialidade', 'psiquiatra')}
+            name="atendimento"
+            value="presencialeOnline"
+            checked={formik.values.atendimento === 'presencialeOnline'}
+            onChange={() =>
+              formik.setFieldValue('atendimento', 'presencialeOnline')
+            }
           />
           <span className="checkmark" />
         </label>
 
-        {/* {formik.touched.especialidade && formik.errors.especialidade ? (
-            <Alerta>{formik.errors.especialidade}</Alerta>
-          ) : null} */}
+        {formik.touched.atendimento && formik.errors.atendimento ? (
+          <Alerta>{formik.errors.atendimento}</Alerta>
+        ) : null}
       </Especialidades>
       <ContainerInput>
         <Input
-          name="preco"
+          name="precoConsulta"
           type="text"
           label="Preço médio da consulta"
-          // errors={formik.touched.preco && formik.errors.preco}
-          // onChange={formik.handleChange}
-          // onBlur={formik.handleBlur}
-          // value={formik.values.preco}
-          // errorMsg={formik.errors.preco}
+          errors={formik.touched.precoConsulta && formik.errors.precoConsulta}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.precoConsulta}
+          errorMsg={formik.errors.precoConsulta}
         />
       </ContainerInput>
       <Especialidades style={{ marginTop: '1rem' }}>
@@ -80,12 +94,10 @@ const Atendimento = () => {
           Sim
           <input
             type="radio"
-            name="especialidade"
-            value="endocrinologista"
-            // checked={formik.values.especialidade === 'endocrinologista'}
-            // onChange={() =>
-            //   formik.setFieldValue('especialidade', 'endocrinologista')
-            // }
+            name="convenio"
+            value="sim"
+            checked={formik.values.convenio === 'sim'}
+            onChange={() => formik.setFieldValue('convenio', 'sim')}
           />
           <span className="checkmark" />
         </label>
@@ -93,18 +105,16 @@ const Atendimento = () => {
           Não
           <input
             type="radio"
-            name="especialidade"
-            value="ginecologista"
-            // checked={formik.values.especialidade === 'ginecologista'}
-            // onChange={() =>
-            //   formik.setFieldValue('especialidade', 'ginecologista')
-            // }
+            name="convenio"
+            value="nao"
+            checked={formik.values.convenio === 'nao'}
+            onChange={() => formik.setFieldValue('convenio', 'nao')}
           />
           <span className="checkmark" />
         </label>
-        {/* {formik.touched.especialidade && formik.errors.especialidade ? (
-            <Alerta>{formik.errors.especialidade}</Alerta>
-          ) : null} */}
+        {formik.touched.convenio && formik.errors.convenio ? (
+          <Alerta>{formik.errors.convenio}</Alerta>
+        ) : null}
       </Especialidades>
       <Especialidades style={{ marginTop: '1rem' }}>
         <TitleEspecialista>
@@ -114,12 +124,10 @@ const Atendimento = () => {
           Sim
           <input
             type="radio"
-            name="especialidade"
-            value="endocrinologista"
-            // checked={formik.values.especialidade === 'endocrinologista'}
-            // onChange={() =>
-            //   formik.setFieldValue('especialidade', 'endocrinologista')
-            // }
+            name="banheiroLocal"
+            value="sim"
+            checked={formik.values.especialidade === 'sim'}
+            onChange={() => formik.setFieldValue('especialidade', 'sim')}
           />
           <span className="checkmark" />
         </label>
@@ -127,34 +135,23 @@ const Atendimento = () => {
           Não
           <input
             type="radio"
-            name="especialidade"
-            value="ginecologista"
-            // checked={formik.values.especialidade === 'ginecologista'}
-            // onChange={() =>
-            //   formik.setFieldValue('especialidade', 'ginecologista')
-            // }
-          />
-          <span className="checkmark" />
-        </label>
-        <label className="container">
-          Atendimento apenas online
-          <input
-            type="radio"
-            name="especialidade"
-            value="psiquiatra"
-            // checked={formik.values.especialidade === 'psiquiatra'}
-            // onChange={() => formik.setFieldValue('especialidade', 'psiquiatra')}
+            name="banheiroLocal"
+            value="nao"
+            checked={formik.values.especialidade === 'nao'}
+            onChange={() => formik.setFieldValue('especialidade', 'nao')}
           />
           <span className="checkmark" />
         </label>
 
-        {/* {formik.touched.especialidade && formik.errors.especialidade ? (
-            <Alerta>{formik.errors.especialidade}</Alerta>
-          ) : null} */}
+        {formik.touched.banheiroLocal && formik.errors.banheiroLocal ? (
+          <Alerta>{formik.errors.banheiroLocal}</Alerta>
+        ) : null}
       </Especialidades>
 
-      <ButtonSalvar>Salvar</ButtonSalvar>
-    </Container>
+      <ContainerButton>
+        <ButtonSalvar type="submit">Salvar</ButtonSalvar>{' '}
+      </ContainerButton>
+    </FormAtendimento>
   );
 };
 
