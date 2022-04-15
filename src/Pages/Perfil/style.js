@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
 
 export const ContainerPerfil = styled.div`
   width: 100%;
-  height: 104px;
   background: #fff;
   display: flex;
   justify-content: space-between;
@@ -87,13 +86,14 @@ export const PerfilProfissinal = styled.div`
 `;
 export const PerfilLeft = styled.div`
   width: 282px;
+  height: 100%;
   background: #ffffff;
   border-radius: 16px;
 `;
 
 export const PerfilRight = styled.div`
   width: 592px;
-  height: 1200px;
+  height: 100%;
   background: #ffffff;
   border-radius: 16px;
 `;
