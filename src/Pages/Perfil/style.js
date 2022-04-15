@@ -90,9 +90,10 @@ export const PerfilLeft = styled.div`
   background: #ffffff;
   border-radius: 16px;
 `;
+
 export const PerfilRight = styled.div`
   width: 592px;
-
+  height: 1200px;
   background: #ffffff;
   border-radius: 16px;
 `;
