@@ -356,7 +356,7 @@ const Profissional = () => {
         </Especialidades>
 
         <ContainerButton>
-          <ButtonSalvar type="submit">Salvar</ButtonSalvar>{' '}
+          <ButtonSalvar type="submit">Salvar e Continuar</ButtonSalvar>{' '}
         </ContainerButton>
       </FormProfissionais>
     </>

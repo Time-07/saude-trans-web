@@ -88,7 +88,7 @@ const Contato = () => {
         />
       </ContainerInput>
       <ContainerButton>
-        <ButtonSalvar type="submit">Salvar</ButtonSalvar>
+        <ButtonSalvar type="submit">Salvar e Continuar</ButtonSalvar>
       </ContainerButton>
     </FormContato>
   );
