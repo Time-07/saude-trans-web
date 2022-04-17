@@ -53,7 +53,9 @@ const Apresentacao = () => {
       </ContainerTextArea>
 
       <ContainerButton>
-        <ButtonSalvar type="submit">Salvar</ButtonSalvar>
+        <ButtonSalvar type="submit" style={{ width: '99px', height: '56px' }}>
+          Salvar
+        </ButtonSalvar>
       </ContainerButton>
     </FormApresentacao>
   );
