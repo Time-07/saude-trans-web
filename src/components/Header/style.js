@@ -5,15 +5,21 @@ export const Container = styled.div`
   width: 100%;
   height: 104px;
   background: #fff;
-  top: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.15);
 `;
+
+export const Wrapper = styled.div`
+  width: 90%;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Logo = styled.img`
   width: 140px;
   height: 104px;
-  margin-left: 120px;
 `;
 
 export const Icone = styled.img`
@@ -29,40 +35,28 @@ export const Icone = styled.img`
   }
 `;
 export const Dropdown = styled.div`
-  margin-right: 120px;
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 2px;
-`;
+  gap: 20px;
 
-export const Dropbtn = styled.button`
-  color: #000;
-  background: none;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  width: 252px;
-  height: 48px;
-  top: 28px;
-  border-radius: 10px;
-  padding: 8px 12px 8px 24px;
-`;
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-export const Dropdowncontent = styled.div`
-  display: none;
-  padding: 16px 12px 16px 24px;
-  width: 200px;
-  height: 120px;
-  position: absolute;
-  background-color: #d7d7d7;
-  z-index: 1;
-  border-radius: 10px;
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background-color: #d7d7d7;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 
-  a {
-    &:hover {
-      background-color: #f1f1f1;
-    }
+    z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 `;
 
@@ -78,7 +72,13 @@ export const Title = styled.h1`
 
 export const Login = styled(Link)`
   color: black;
-  padding: 12px;
+  padding: 12px 16px;
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    background-color: #d7d7e7;
+  }
 `;

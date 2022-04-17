@@ -8,10 +8,10 @@ import Perfil from '../Pages/Perfil';
 function routes() {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/login' element={<PageLogin />} />
-      <Route path='/login/cadastro' element={<PageCadastro />} />
-      <Route path='/perfil' element={<Perfil />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<PageLogin />} />
+      <Route path="/cadastro" element={<PageCadastro />} />
+      <Route path="/perfil" element={<Perfil />} />
     </Routes>
   );
 }

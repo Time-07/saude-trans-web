@@ -42,7 +42,10 @@ const CadastroForm = () => {
     },
     validationSchema: yup.object({
       nome: yup.string().required('O campo é obrigatório'),
-      email: yup.string().required('O campo é obrigatório'),
+      email: yup
+        .string()
+        .email('Email Invalido')
+        .required('O campo é obrigatório'),
       senha: yup.string().required('O campo é obrigatório'),
       confirmaSenha: yup
         .string()

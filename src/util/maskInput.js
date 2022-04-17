@@ -5,6 +5,14 @@ export const conselhoMask = value => {
     .replace(/(\d{6})\d+?$/, '$1'); // captura 6 numeros seguidos e não deixa ser digitado mais nada
 };
 
+export const conselhoCelular = value => {
+  return value
+    .replace(/\D+/g, '')
+    .replace(/(\d{2})(\d)/, '$1 $2')
+    .replace(/(\d{5})(\d)/, '$1-$2')
+    .replace(/(-\d{4})\d+?$/, '$1');
+};
+
 export const cpfMask = value => {
   return value
     .replace(/\D/g, '') // substitui qualquer caracter que nao seja numero por nada

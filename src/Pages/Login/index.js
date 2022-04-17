@@ -96,7 +96,7 @@ const Login = () => {
 
             <ContainerCriar>
               <TextCadastro> Ainda não tem uma conta?</TextCadastro>
-              <Cadastro to="/login/cadastro">Cadastre-se</Cadastro>
+              <Cadastro to="/cadastro">Cadastre-se</Cadastro>
             </ContainerCriar>
           </Form>
         </WrapperLogin>
