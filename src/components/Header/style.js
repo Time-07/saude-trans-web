@@ -3,23 +3,22 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 104px;
-  background: #fff;
+  height: 64px;
+  background: #f5edf8;
   display: flex;
   justify-content: center;
-  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.15);
 `;
 
 export const Wrapper = styled.div`
   width: 90%;
-  background: #fff;
+  background: #f5edf8;
   display: flex;
   justify-content: space-between;
 `;
 
 export const Logo = styled.img`
-  width: 140px;
-  height: 104px;
+  width: 104px;
+  height: 64px;
 `;
 
 export const Icone = styled.img`
