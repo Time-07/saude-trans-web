@@ -6,6 +6,7 @@ export const ContainerLogin = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 3.5%;
+  padding-bottom: 3.5%;
 `;
 
 export const WrapperLogin = styled.div`

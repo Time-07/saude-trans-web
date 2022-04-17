@@ -5,6 +5,7 @@ import { useCadastro } from '../../context/useCadastro';
 import * as yup from 'yup';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
+import Footer from '../../components/Footer';
 import {
   Alerta,
   ButtonLogin,
@@ -101,6 +102,7 @@ const Login = () => {
           </Form>
         </WrapperLogin>
       </ContainerLogin>
+      <Footer />
     </>
   );
 };
