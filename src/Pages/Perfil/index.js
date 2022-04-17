@@ -4,6 +4,7 @@ import Apresentacao from './Form/Apresentacao';
 import Atendimento from './Form/Atendimento';
 import Contato from './Form/Contato';
 import Profissional from './Form/Profissional';
+import Footer from '../../components/Footer';
 import {
   ContainerPerfil,
   Logo,
@@ -17,10 +18,11 @@ import {
   PerfilProfissinal,
   PerfilLeft,
   PerfilRight,
-  TextoContatoInfo,
   ButtonPublicar,
   TextPerfil,
   MenuButtons,
+  ButtonAtivar,
+  DetalhePerfil,
 } from './style';
 
 function Perfil() {
@@ -42,8 +44,7 @@ function Perfil() {
           <TextoPerfil>Perfil profissional</TextoPerfil>
           <TextoInformativo>
             Preencha os campos abaixo para completar o seu perfil e
-            disponibilizá-lo no nosso app. É por meio dessas informações que os
-            pacientes poderão entrar em contato.
+            disponibilizá-lo no DIVERSAÚDE.
           </TextoInformativo>
         </InicioPerfil>
 
@@ -76,8 +77,10 @@ function Perfil() {
               >
                 Apresentação
               </ButtonPublicar>
+              <ButtonAtivar>Ativar publicação</ButtonAtivar>
             </MenuButtons>
           </PerfilLeft>
+
           <PerfilRight>
             {active === 0 && <Profissional />}
             {active === 1 && <Atendimento />}
@@ -86,6 +89,7 @@ function Perfil() {
           </PerfilRight>
         </PerfilProfissinal>
       </Wrapper>
+      <Footer />
     </Conatiner>
   );
 }
