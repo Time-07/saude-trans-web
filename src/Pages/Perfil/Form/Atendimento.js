@@ -142,6 +142,17 @@ const Atendimento = () => {
           />
           <span className="checkmark" />
         </label>
+        <label className="container">
+          (Não atendo presencial)
+          <input
+            type="radio"
+            name="banheiroLocal"
+            value="nao"
+            checked={formik.values.especialidade === 'nao'}
+            onChange={() => formik.setFieldValue('especialidade', 'nao')}
+          />
+          <span className="checkmark" />
+        </label>
 
         {formik.touched.banheiroLocal && formik.errors.banheiroLocal ? (
           <Alerta>{formik.errors.banheiroLocal}</Alerta>
@@ -149,7 +160,7 @@ const Atendimento = () => {
       </Especialidades>
 
       <ContainerButton>
-        <ButtonSalvar type="submit">Salvar</ButtonSalvar>{' '}
+        <ButtonSalvar type="submit">Salvar e Continuar</ButtonSalvar>{' '}
       </ContainerButton>
     </FormAtendimento>
   );
