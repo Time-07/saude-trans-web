@@ -5,7 +5,6 @@ export const Conatiner = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
 `;
 
 export const Wrapper = styled.div`
@@ -18,16 +17,16 @@ export const Wrapper = styled.div`
 
 export const ContainerPerfil = styled.div`
   width: 100%;
-  background: #fff;
+  height: 64px;
+  background: #f5edf8;
   display: flex;
   justify-content: space-between;
-  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.15);
   padding: 0 120px;
 `;
 
 export const Logo = styled.img`
-  width: 140px;
-  height: 104px;
+  width: 104px;
+  height: 64px;
 `;
 
 export const ContainerMenuPerfil = styled.div`
@@ -38,7 +37,7 @@ export const ContainerMenuPerfil = styled.div`
 `;
 
 export const MenuItem = styled.button`
-  color: #000;
+  color: #111111;
   background: none;
   font-size: 16px;
   border: none;
@@ -52,12 +51,24 @@ export const MenuItem = styled.button`
   line-height: 32px;
 
   &:hover {
-    background: #d7d7d7;
+    background: #E5C7F2;
     }
   }
 `;
 
-export const InicioPerfil = styled.div``;
+export const InicioPerfil = styled.div`
+  width: 588px;
+  height: 192px;
+  background: #f5edf8;
+  border-radius: 32px;
+  padding: 32px 48px;
+  margin-top: 40px;
+`;
+export const DetalhePerfil = styled.div`
+  content: '';
+  width: 100%;
+  border-top: 4px solid #f5edf8;
+`;
 
 export const TextoPerfil = styled.h1`
   font-family: 'Fredoka';
@@ -67,7 +78,7 @@ export const TextoPerfil = styled.h1`
   line-height: 120%;
   display: flex;
   align-items: center;
-  color: #1f1f1f;
+  color: #44314b;
 `;
 export const TextoInformativo = styled.p`
   font-family: 'Inter';
@@ -75,9 +86,7 @@ export const TextoInformativo = styled.p`
   font-weight: 400;
   font-size: 18px;
   line-height: 32px;
-  color: #1f1f1f;
-  width: 50%;
-  height: 96px;
+  color: #1d1620;
 `;
 
 export const PerfilProfissinal = styled.div`
@@ -88,6 +97,9 @@ export const PerfilLeft = styled.div`
   width: 282px;
   height: 100%;
   background: #ffffff;
+  border: 1px solid rgba(219, 152, 245, 0.33);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   border-radius: 16px;
 `;
 
@@ -114,7 +126,7 @@ export const TextPerfil = styled.h1`
   font-size: 28px;
   line-height: 36px;
   width: 100%;
-  color: #000000;
+  color: #111111;
   margin-top: 32px;
   margin-left: 31px;
 `;
@@ -131,15 +143,37 @@ export const MenuButtons = styled.div`
 `;
 
 export const ButtonPublicar = styled.button`
-  width: 220px;
+  width: 187px;
   height: 44px;
   cursor: pointer;
   border: none;
-  background: ${props => (props.active ? '#bebebe' : '#ffffff')};
+  background: ${props => (props.active ? '#e5c7f2' : '#ffffff')};
   border-radius: 30px;
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  padding: 8px 16px;
+  color: #111111;
+`;
+export const ButtonAtivar = styled.button`
+  width: 189px;
+  height: 56px;
+  background: #fcf1f3;
+  border: 1px solid #f5a9b8;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
+  border-radius: 8px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  color: #481F26;
+  cursor: pointer;
+  &:hover {
+    background: #F9D7DD;
+    }
+  }
 `;

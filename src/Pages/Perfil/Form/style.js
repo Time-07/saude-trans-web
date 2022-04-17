@@ -186,7 +186,7 @@ export const Especialidades = styled.div`
   }
 
   .container input:checked ~ .checkmark {
-    background-color: #000;
+    background-color: #744d83;
   }
 
   .checkmark:after {
@@ -205,26 +205,29 @@ export const Especialidades = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: white;
+    background: #fff;
   }
 `;
 
 export const ButtonSalvar = styled.button`
-  width: 99px;
+  width: 195px;
   height: 56px;
   cursor: pointer;
-  background: #f5a9b8;
-  border: 1px solid #cf8a97;
+  background: #fcf1f3;
+  border: 1px solid #f5a9b8;
   box-sizing: border-box;
-  box-shadow: 0px 2px 8px 1px rgba(245, 169, 184, 0.5);
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   border-radius: 8px;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 0.5px;
   color: #000000;
+  &:hover {
+    background: #F9D7DD;
+    }
+  }
 `;
 
 export const TextoAtendimento = styled.h1`
