@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
   padding-bottom: 80px;
   overflow: auto;
   width: 100%;
+  background: #ecdbf4;
 `;
 
 export const ContainerCadastro = styled.div`
@@ -30,7 +31,9 @@ export const ContainerCadastro = styled.div`
   padding: 20px;
   gap: 20px;
   background: #fff;
-  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(219, 152, 245, 0.33);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   border-radius: 16px;
 `;
 
@@ -44,13 +47,13 @@ export const ContainerTitle = styled.div`
 `;
 
 export const TitleDoc = styled.h1`
-  color: #000;
+  color: #44314b;
+  font-family: 'Fredoka';
   font-family: 'Fredoka';
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: center;
+  font-size: 36px;
+  line-height: 44px;
 `;
 
 export const Detalhe = styled.progress`
@@ -62,23 +65,24 @@ export const Detalhe = styled.progress`
   transition: width 2s ease-in-out;
 
   ::-webkit-progress-bar {
-    background-color: #c4c4c4;
+    background-color: #ecdbf4;
     border-radius: 10px;
   }
   ::-webkit-progress-value {
-    background: #514d4d;
+    background: #a768c0;
     border-radius: 10px;
     background-size: 35px 20px, 100% 100%, 100% 100%;
   }
 `;
 
 export const Text = styled.p`
-  color: #000;
+  color: #111111;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
 `;
 
 export const OpcaoCadastro = styled.div`
@@ -112,16 +116,16 @@ export const Opcao = styled.div`
   width: 168px;
   height: 168px;
   border-radius: 50%;
-  background: #c4c4c4;
+  box-shadow: 0px 4px 12px rgba(215, 130, 248, 0.33);
 `;
 
 export const TextOpcao = styled.label`
   font-family: 'Fredoka';
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 40px;
-  color: #000000;
+  font-size: 22px;
+  line-height: 28px;
+  color: #744d83;
 
   &:hover {
     text-decoration: underline;
@@ -129,45 +133,39 @@ export const TextOpcao = styled.label`
   }
 `;
 
-export const Medico = styled.label`
-  font-family: 'Fredoka';
-  font-style: normal;
-  font-size: 18px;
-  line-height: 40px;
-  color: #000000;
-`;
+export const Medico = styled.img``;
 
-export const Psicologo = styled.label`
-  font-family: 'Fredoka';
-  font-style: normal;
-  font-size: 18px;
-  line-height: 40px;
-  color: #000000;
-`;
+export const Psicologo = styled.img``;
 export const Texto = styled.p`
-  color: #000;
+  color: #111111;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 32px;
-  width: 526px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
 `;
 export const ButtonCadastro = styled.button`
-  border-radius: 10px;
-  border: none;
+  width: 128px;
+  height: 56px;
+  padding: 16px 24px;
+  margin: auto;
+  border-radius: 8px;
   cursor: pointer;
-  width: 256px;
-  height: 64px;
   color: #000;
-  margin-top: 1rem;
+  background: #fcf1f3;
+  border: 1px solid #f5a9b8;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+ 
   &:hover {
-    background-color: #cacaca;
+    background: #F9D7DD;
+    }
   }
 `;
 
@@ -197,11 +195,13 @@ export const ContainerInput = styled.div`
 `;
 
 export const Informacoes = styled.div`
+  width: 528px;
+  height: 400px;
   display: flex;
   align-items: center;
   width: 100%;
   flex-direction: column;
-  background: #efefef;
+  background: #ecdbf4;
   border-radius: 8px;
   font-family: 'Inter';
   font-style: normal;
@@ -213,20 +213,22 @@ export const Informacoes = styled.div`
 `;
 
 export const TextoFinal = styled.p`
-  font-family: 'Inter';
+  font-family: 'Fredoka';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 40px;
+  line-height: 32px;
   color: #000000;
 `;
 export const TextoInfo = styled.p`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
   color: #000000;
+  padding: 0 32px;
 `;
 export const CadastroFinal = styled(Link)`
   color: #a4a4a4;
@@ -243,9 +245,7 @@ export const TitleEspecialista = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-
   color: #6f6f6f;
-
   flex-grow: 0;
   margin: 8px 0px;
 `;
@@ -317,12 +317,14 @@ export const Especialidades = styled.div`
   }
 `;
 
-export const ButtonFinal = styled(Link)`
+export const ButtonFinal = styled.button`
   border-radius: 10px;
   color: #000;
   cursor: pointer;
   width: 256px;
   height: 64px;
+  outline: none;
+  border: none;
   margin-top: 1rem;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
