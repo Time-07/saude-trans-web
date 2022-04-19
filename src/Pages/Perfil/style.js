@@ -133,6 +133,8 @@ export const TextPerfil = styled.h1`
 
 export const Perfil = styled.div``;
 
+export const DocPsico = styled.img``;
+
 export const MenuButtons = styled.div`
   display: flex;
   width: 100%;

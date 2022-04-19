@@ -22,8 +22,9 @@ import {
   TextPerfil,
   MenuButtons,
   ButtonAtivar,
-  DetalhePerfil,
+  DocPsico,
 } from './style';
+import DocPsicoo from '../../assets/docpsico.png';
 
 function Perfil() {
   const [active, setActive] = useState(0);
@@ -40,13 +41,22 @@ function Perfil() {
       </ContainerPerfil>
 
       <Wrapper>
-        <InicioPerfil>
-          <TextoPerfil>Perfil profissional</TextoPerfil>
-          <TextoInformativo>
-            Preencha os campos abaixo para completar o seu perfil e
-            disponibilizá-lo no DIVERSAÚDE.
-          </TextoInformativo>
-        </InicioPerfil>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '120px',
+          }}
+        >
+          <InicioPerfil>
+            <TextoPerfil>Perfil profissional</TextoPerfil>
+            <TextoInformativo>
+              Preencha os campos abaixo para completar o seu perfil e
+              disponibilizá-lo no DIVERSAÚDE.
+            </TextoInformativo>
+          </InicioPerfil>
+          <DocPsico src={DocPsicoo} />
+        </div>
 
         <PerfilProfissinal>
           <PerfilLeft>

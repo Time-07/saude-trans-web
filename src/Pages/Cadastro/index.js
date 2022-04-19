@@ -6,6 +6,7 @@ import PsicologoForm from './Form/Psicologo';
 import TipoProfissional from './Form/TipoProfissional';
 import CadastroForm from './Form/CadastroForm';
 import CadastroFinal from './Form/CadastroFinal';
+import Footer from '../../components/Footer';
 import {
   ContainerCadastro,
   Wrapper,
@@ -43,6 +44,7 @@ const Cadastro = () => {
           )}
         </ContainerCadastro>
       </Wrapper>
+      <Footer />
     </ContanierTelaCadastro>
   );
 };

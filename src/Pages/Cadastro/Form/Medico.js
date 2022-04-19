@@ -42,7 +42,7 @@ const MedicoForm = () => {
   return (
     <>
       <Texto>
-        Agora insira o seu registro do CRM e o estado no qual foi emitido!
+        Agora insira o seu registro do CRM* e o estado no qual foi emitido!
       </Texto>
       <ContainerForm style={{ marginTop: '1rem' }}>
         <FormContainer onSubmit={formik.handleSubmit} noValidate>
@@ -55,7 +55,7 @@ const MedicoForm = () => {
               justifyContent: 'center',
             }}
           >
-            <div style={{ width: '50%' }}>
+            <div style={{ width: '240px' }}>
               <Input
                 name="numeroConselho"
                 type="text"
@@ -74,7 +74,7 @@ const MedicoForm = () => {
               error={
                 formik.errors.language && formik.touched.language ? true : false
               }
-              sx={{ width: '50%' }}
+              sx={{ width: '240px' }}
             >
               <InputLabel id="selectlinguagem">Estado</InputLabel>
               <Select
@@ -124,11 +124,6 @@ const MedicoForm = () => {
           </div>
           <ButtonCadastro type="submit">Continuar</ButtonCadastro>
         </FormContainer>
-        <Informacoes>
-          Por quê pedimos essas informações: <br /> Validamos seu CRM para
-          garatir a segurança das pessoas que acessam a plataforma e a
-          legitimidade dos anúncios reslizados!
-        </Informacoes>
       </ContainerForm>
     </>
   );

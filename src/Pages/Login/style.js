@@ -6,32 +6,36 @@ export const ContainerLogin = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 3.5%;
+  padding-bottom: 3.5%;
 `;
 
 export const WrapperLogin = styled.div`
   display: flex;
   justify-content: center;
   width: 384px;
+  height: 468px;
   background: #fff;
-  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(219, 152, 245, 0.33);
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   border-radius: 16px;
 `;
 
 export const Form = styled.form`
   display: flex;
-  gap: 30px;
+  gap: 32px;
   width: 90%;
   flex-direction: column;
 `;
 
 export const Title = styled.h2`
-  color: #000;
+  color: #44314b;
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 36px;
   font-family: 'Fredoka', sans-serif;
   text-align: center;
-  line-height: 48px;
+  line-height: 44px;
+  padding-top: 32px;
 `;
 
 export const WrapperInput = styled.div`
@@ -56,34 +60,26 @@ export const Alerta = styled.p`
   font-size: 14px;
 `;
 
-export const EsquecerSenha = styled.span`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 24px;
-  text-decoration: underline;
-  color: #00000080;
-`;
-
 export const ButtonLogin = styled.button`
-  padding: 16px 92px;
+  width: 97px;
+  height: 56px;
   margin: auto;
-  border-radius: 10px;
-  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  width: 256px;
-  height: 64px;
-  color: #000;
-
-  font-family: 'Inter', sans-serif;
-
+  background: #fcf1f3;
+  border: 1px solid #f5a9b8;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
+  color: #481f26;
+  font-family: 'Inter';
+  font-style: normal;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-  margin-bottom: 20px;
-
+  font-size: 16px;
+  line-height: 24px;
+  
   &:hover {
-    background-color: #cacaca;
+    background: #F9D7DD;
+    }
   }
 `;
 
@@ -92,7 +88,6 @@ export const ContainerCriar = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  padding-bottom: 20px;
 `;
 
 export const TextCadastro = styled.p`
@@ -103,12 +98,15 @@ export const TextCadastro = styled.p`
   font-style: normal;
   font-size: 14px;
   line-height: 24px;
+  padding-top: 32px;
 `;
 export const Cadastro = styled(Link)`
-  color: #a4a4a4;
+  color: #38829f;
   margin: auto;
   font-family: 'Inter', sans-serif;
   font-style: normal;
+  font-weight: 400;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 20px;
+  text-decoration: none;
 `;

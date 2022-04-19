@@ -5,13 +5,13 @@ import { useCadastro } from '../../context/useCadastro';
 import * as yup from 'yup';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
+import Footer from '../../components/Footer';
 import {
   Alerta,
   ButtonLogin,
   Cadastro,
   ContainerCriar,
   ContainerLogin,
-  EsquecerSenha,
   Form,
   TextCadastro,
   Title,
@@ -87,20 +87,19 @@ const Login = () => {
                 <Alerta>{formik.errors.password}</Alerta>
               ) : null}
               {error && <Alerta>Usuário ou senha incorretos</Alerta>}
-              <EsquecerSenha>Esqueci minha senha</EsquecerSenha>
             </WrapperInput>
 
-            <ButtonLogin type="submit" disabled={loading}>
-              Entrar
-            </ButtonLogin>
-
             <ContainerCriar>
+              <ButtonLogin type="submit" disabled={loading}>
+                Entrar
+              </ButtonLogin>
               <TextCadastro> Ainda não tem uma conta?</TextCadastro>
               <Cadastro to="/cadastro">Cadastre-se</Cadastro>
             </ContainerCriar>
           </Form>
         </WrapperLogin>
       </ContainerLogin>
+      <Footer />
     </>
   );
 };
