@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Logo = styled.img`
   width: 169px;
@@ -10,17 +11,13 @@ export const ContainerFooter = styled.footer`
   justify-content: space-around;
   width: 100%;
   height: 284px;
-  padding-left: 120px;
-  padding-bottom: 131px;
-  padding-top: 49px;
+  align-items: center;
 `;
 export const Sobre = styled.div`
-  width: 290px;
-  height: 112px;
+  width: 282px;
 `;
 export const Conta = styled.div`
   width: 282px;
-  height: 48px;
 `;
 export const TituloSobre = styled.h1`
   font-family: 'Fredoka';
@@ -29,6 +26,7 @@ export const TituloSobre = styled.h1`
   font-size: 24px;
   line-height: 32px;
   color: #ffffff;
+  padding-bottom: 20px;
 `;
 
 export const TextSobre = styled.p`
@@ -43,15 +41,18 @@ export const TextSobre = styled.p`
   padding-bottom: 20px;
 `;
 
-export const OpcaoConta = styled.p`
+export const OpcaoConta = styled(Link)`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.4px;
-  text-decoration-line: underline;
   color: #ffffff;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Fim = styled.div`
