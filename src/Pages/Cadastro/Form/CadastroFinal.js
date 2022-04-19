@@ -16,7 +16,7 @@ const CadastroFinal = () => {
         <Detalhe value={step} max="5" />
         <Texto>Cadastro concluído com sucesso.</Texto>
       </ContainerTitle>
-      <ButtonFinal>Ir para o perfil </ButtonFinal>
+      <ButtonFinal>Login</ButtonFinal>
     </>
   );
 };
