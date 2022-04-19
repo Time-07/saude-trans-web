@@ -9,6 +9,8 @@ import {
   ContainerFormTipoProfissional,
   Text,
 } from '../style';
+import Medicoo from '../../../assets/medico.png';
+import Psico from '../../../assets/psico.png';
 
 const TipoProfissional = () => {
   const { setStep, setData } = useCadastro();
@@ -31,13 +33,13 @@ const TipoProfissional = () => {
       <ContainerFormTipoProfissional>
         <Profissionais onClick={clickMedico}>
           <Opcao>
-            <Medico htmlFor="" />
+            <Medico src={Medicoo} />
           </Opcao>
           <TextOpcao> Médico(a)</TextOpcao>
         </Profissionais>
         <Profissionais onClick={clickPsicologo}>
           <Opcao>
-            <Psicologo htmlFor="" />
+            <Psicologo src={Psico} />
           </Opcao>
           <TextOpcao>Psicólogo(a)</TextOpcao>
         </Profissionais>
