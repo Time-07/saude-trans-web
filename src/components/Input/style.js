@@ -10,8 +10,9 @@ export const Container = styled.div`
     flex-direction: column;
     width: 100%;
     position: relative;
-    border: 1px solid ${props => (props.errors ? '#c0392b' : '#999')};
+    border: 1px solid ${props => (props.errors ? '#c0392b' : '#DFB0F2')};
     border-radius: 8px;
+    box-shadow: 0px 4px 5px rgba(215, 130, 248, 0.2);
   }
 
   #float-label input {
@@ -36,6 +37,13 @@ export const Container = styled.div`
     transform: translate(0, 24px) scale(1);
     transform-origin: top left;
     transition: all 0.2s ease-out;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #5a5a5a;
   }
   #float-label:focus-within label {
     transform: translate(0, 8px) scale(0.75);
