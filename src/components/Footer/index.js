@@ -28,30 +28,30 @@ const Footer = () => {
 
           <a
             href="mailto:contato@diversaude.com.br"
-            style={{ color: '#fff', textDecoration: 'none' }}
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontFamily: 'Inter',
+              fontStyle: 'normal',
+              fontWeight: '400',
+              fontSize: '12px',
+              lineHeight: '16px',
+            }}
           >
             Fale conosco:contato@diversaude.com.br
           </a>
         </Sobre>
         <Conta>
-          <TituloSobre>Conta</TituloSobre>
+          <TituloSobre>DiverSaúde</TituloSobre>
           <nav>
             <ul>
-              <OpcaoConta>
-                <a href="/" style={{ color: '#fff' }}>
-                  Perfil
-                </a>
-              </OpcaoConta>
-              <OpcaoConta>
-                <a href="/" style={{ color: '#fff' }}>
-                  Sobre
-                </a>
-              </OpcaoConta>
-              <OpcaoConta>
-                <a href="/" style={{ color: '#fff' }}>
-                  Encerrar conta
-                </a>
-              </OpcaoConta>
+              <OpcaoConta to="#">Download do app DiverSaúde</OpcaoConta>{' '}
+            </ul>
+            <ul>
+              <OpcaoConta to="/login">Login para profissionais</OpcaoConta>
+            </ul>
+            <ul>
+              <OpcaoConta to="/cadastro">Cadastro de profissionais</OpcaoConta>
             </ul>
           </nav>
         </Conta>
