@@ -303,8 +303,10 @@ export const TextoDados = styled.p`
 
 export const ContainerAjudaProfissional = styled.div`
   width: 100%;
-  height: 644px;
-  background: #fefaff;
+  display: flex;
+  background: #fff;
+  justify-content: center;
+  padding: 40px 0;
 `;
 
 export const WrapperAjudaProfissional = styled.div`
@@ -324,17 +326,47 @@ export const ParaAjudar = styled.div`
 export const PossoAjudar = styled.div`
   display: flex;
   flex-direction: column;
-  width: 520px;
-  height: 48px;
+  cursor: pointer;
+  width: 588px;
+  background: #ffffff;
+  box-sizing: border-box;
 `;
+export const ContainerTextoAjudar = styled.div`
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 8px 32px;
+  background: #ffffff;
+  border: 1px solid #dfb0f2;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 5px rgba(215, 130, 248, 0.2);
+  border-radius: 8px 8px 0px 0px;
+`;
+export const RespostaTexto = styled.div`
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  background: #ffffff;
+  padding: 14px 24px;
+  border: 1px solid #dfb0f2;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 5px rgba(215, 130, 248, 0.2);
+  border-radius: 0px 0px 8px 8px;
+`;
+
 export const TextoAjudar = styled.p`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
+  width: 95%;
   font-size: 16px;
   line-height: 24px;
-  color: #000000;
-  padding: 20px;
+  letter-spacing: 0.5px;
+  color: #111111;
 `;
 
 export const DocPsico = styled.img``;
