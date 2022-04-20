@@ -318,22 +318,26 @@ export const Especialidades = styled.div`
 `;
 
 export const ButtonFinal = styled.button`
-  border-radius: 10px;
-  color: #000;
+  width: 165px;
+  height: 56px;
+  padding: 16px 24px;
+  margin: auto;
+  border-radius: 8px;
   cursor: pointer;
-  width: 256px;
-  height: 64px;
-  outline: none;
-  border: none;
-  margin-top: 1rem;
+  color: #000;
+  background: #fcf1f3;
+  border: 1px solid #f5a9b8;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-  background-color: #a4a4a4;
-  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+ 
   &:hover {
-    background-color: #cacaca;
+    background: #F9D7DD;
+    }
   }
 `;
 export const IconErro = styled.img`
