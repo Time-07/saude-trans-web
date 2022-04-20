@@ -5,6 +5,7 @@ import Atendimento from './Form/Atendimento';
 import Contato from './Form/Contato';
 import Profissional from './Form/Profissional';
 import Footer from '../../components/Footer';
+import { useUserData } from '../../context/useUserData';
 import {
   ContainerPerfil,
   Logo,
@@ -27,6 +28,7 @@ import {
 import DocPsicoo from '../../assets/docpsico.png';
 
 function Perfil() {
+  const { userLogout } = useUserData();
   const [active, setActive] = useState(0);
 
   return (
@@ -36,7 +38,7 @@ function Perfil() {
         <ContainerMenuPerfil>
           <MenuItem>Perfil</MenuItem>
           <MenuItem>Avaliações</MenuItem>
-          <MenuItem>Sair</MenuItem>
+          <MenuItem onClick={() => userLogout()}>Sair</MenuItem>
         </ContainerMenuPerfil>
       </ContainerPerfil>
 
