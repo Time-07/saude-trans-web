@@ -3,6 +3,7 @@ import { useFormik, ErrorMessage } from 'formik';
 import { useCadastro } from '../../../context/useCadastro';
 import { conselhoMask } from '../../../util/maskInput';
 import * as yup from 'yup';
+import Erro from '../../../assets/erroT.png';
 import {
   FormControl,
   FormHelperText,
@@ -14,7 +15,7 @@ import { Alerta } from '../../Login/style';
 import {
   ButtonCadastro,
   FormContainer,
-  Informacoes,
+  IconErro,
   ContainerForm,
   Texto,
 } from '../style';
@@ -54,7 +55,7 @@ const PsicologoForm = () => {
               justifyContent: 'center',
             }}
           >
-            <div style={{ width: '240px' }}>
+            <div style={{ width: '50%' }}>
               <Input
                 name="numeroConselho"
                 type="text"
@@ -73,7 +74,7 @@ const PsicologoForm = () => {
               error={
                 formik.errors.language && formik.touched.language ? true : false
               }
-              sx={{ width: '240px' }}
+              sx={{ width: '50%' }}
             >
               <InputLabel id="selectlinguagem">Estado</InputLabel>
               <Select
@@ -119,6 +120,8 @@ const PsicologoForm = () => {
                 <MenuItem value="EX">Estrangeiro</MenuItem>
               </Select>
               <FormHelperText sx={{ color: '#c0392b', fontSize: '14px' }}>
+                {/* <IconErro src={Erro} /> */}
+
                 {formik.touched.estadoConselho && formik.errors.estadoConselho
                   ? formik.errors.estadoConselho
                   : null}

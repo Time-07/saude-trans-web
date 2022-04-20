@@ -55,7 +55,7 @@ const MedicoForm = () => {
               justifyContent: 'center',
             }}
           >
-            <div style={{ width: '240px' }}>
+            <div style={{ width: '50%' }}>
               <Input
                 name="numeroConselho"
                 type="text"
@@ -74,7 +74,7 @@ const MedicoForm = () => {
               error={
                 formik.errors.language && formik.touched.language ? true : false
               }
-              sx={{ width: '240px' }}
+              sx={{ width: '50%' }}
             >
               <InputLabel id="selectlinguagem">Estado</InputLabel>
               <Select
