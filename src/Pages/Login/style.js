@@ -7,17 +7,19 @@ export const ContainerLogin = styled.div`
   justify-content: center;
   padding-top: 3.5%;
   padding-bottom: 3.5%;
+  background-color: #f5edf8;
 `;
 
 export const WrapperLogin = styled.div`
   display: flex;
   justify-content: center;
   width: 384px;
-  height: 468px;
+  height: 500px;
   background: #fff;
   border: 1px solid rgba(219, 152, 245, 0.33);
   box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   border-radius: 16px;
+  position: absolute;
 `;
 
 export const Form = styled.form`
@@ -59,6 +61,11 @@ export const Alerta = styled.p`
   color: #c0392b;
   font-size: 14px;
 `;
+export const IconErro = styled.img`
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+`;
 
 export const ButtonLogin = styled.button`
   width: 97px;
@@ -98,7 +105,7 @@ export const TextCadastro = styled.p`
   font-style: normal;
   font-size: 14px;
   line-height: 24px;
-  padding-top: 32px;
+  padding-top: 20px;
 `;
 export const Cadastro = styled(Link)`
   color: #38829f;
