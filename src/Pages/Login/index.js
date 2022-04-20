@@ -1,13 +1,15 @@
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../modules/user';
-import { useCadastro } from '../../context/useCadastro';
+import { useUserData } from '../../context/useUserData';
 import * as yup from 'yup';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Footer from '../../components/Footer';
+import Erro from '../../assets/erroT.png';
 import {
   Alerta,
+  IconErro,
   ButtonLogin,
   Cadastro,
   ContainerCriar,
@@ -18,10 +20,11 @@ import {
   WrapperInput,
   WrapperLogin,
 } from './style';
+import Loginn from '../../assets/loginn.png';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { error, setError, loading, setLoading } = useCadastro();
+  const { error, setError, userLogin, loading, setLoading } = useUserData();
 
   const formik = useFormik({
     initialValues: {
@@ -38,11 +41,10 @@ const Login = () => {
     onSubmit: async values => {
       try {
         setLoading(true);
-        await loginUser(values);
-        navigate('/perfil');
+        const response = await loginUser(values);
+        userLogin(response);
       } catch (error) {
         setError(error.message);
-        console.log(error.response.data);
       } finally {
         setLoading(false);
       }
@@ -53,6 +55,8 @@ const Login = () => {
     <>
       <Header />
       <ContainerLogin>
+        <img src={Loginn} alt="" />
+
         <WrapperLogin>
           <Form onSubmit={formik.handleSubmit} noValidate>
             <Title>login</Title>
@@ -67,7 +71,10 @@ const Login = () => {
                 value={formik.values.email}
               />
               {formik.touched.email && formik.errors.email ? (
-                <Alerta>{formik.errors.email}</Alerta>
+                <Alerta>
+                  <IconErro src={Erro} />
+                  {formik.errors.email}
+                </Alerta>
               ) : null}
             </WrapperInput>
 
@@ -84,9 +91,17 @@ const Login = () => {
                 value={formik.values.password}
               />
               {formik.touched.password && formik.errors.password ? (
-                <Alerta>{formik.errors.password}</Alerta>
+                <Alerta>
+                  <IconErro src={Erro} />
+                  {formik.errors.password}
+                </Alerta>
               ) : null}
-              {error && <Alerta>Usuário ou senha incorretos</Alerta>}
+              {error && (
+                <Alerta>
+                  <IconErro src={Erro} />
+                  Usuário ou senha incorretos
+                </Alerta>
+              )}
             </WrapperInput>
 
             <ContainerCriar>
