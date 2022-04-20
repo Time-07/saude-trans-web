@@ -12,13 +12,13 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   padding-top: 80px;
   height: 100%;
+  gap: 20px;
   padding-bottom: 80px;
-  overflow: auto;
   width: 100%;
-  background: #ecdbf4;
+  background: #f5edf8; ;
 `;
 
 export const ContainerCadastro = styled.div`
@@ -294,7 +294,7 @@ export const Especialidades = styled.div`
   }
 
   .container input:checked ~ .checkmark {
-    background-color: #000;
+    background-color: #744d83;
   }
 
   .checkmark:after {
@@ -335,4 +335,9 @@ export const ButtonFinal = styled.button`
   &:hover {
     background-color: #cacaca;
   }
+`;
+export const IconErro = styled.img`
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
 `;
