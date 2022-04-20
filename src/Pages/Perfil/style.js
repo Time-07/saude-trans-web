@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Conatiner = styled.div`
   width: 100%;
@@ -49,6 +50,26 @@ export const MenuItem = styled.button`
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
+
+  &:hover {
+    background: #E5C7F2;
+    }
+  }
+`;
+export const MenuItemHome = styled(Link)`
+  color: #111111;
+  background: none;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: 60px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  text-decoration:none;
 
   &:hover {
     background: #E5C7F2;
