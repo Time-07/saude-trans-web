@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { cpfMask } from '../../../util/maskInput';
-import { RegisterUser } from '../../../modules/user';
+import { RegisterUser, TipoUsuario } from '../../../modules/user';
 import {
   FormControl,
   FormHelperText,
@@ -58,27 +58,23 @@ const CadastroForm = () => {
         .required('O campo é obrigatório'),
     }),
     onSubmit: async values => {
-      const dataForm = {
-        name: values.name,
-        email: values.email,
-        password: values.senha,
-        cpf: values.cpf,
-        gender: values.identidadeGenero,
-        specialty: values.especialidade,
-        crmCrp: data.numeroConselho,
-        role_id: '6452f500-635a-4516-a999-bfad829d1ce7',
-      };
-
-      // const datady = {
-      //   name: 'Naruto Uzumaki',
-      //   email: 'naruto@email.com',
-      //   password: 'Teste@123',
-      //   cpf: '1125484841',
-      //   gender: 'mas',
-      //   role_id: '6452f500-635a-4516-a999-bfad829d1ce7',
-      // };
-
       try {
+        const tipoUsuario = {
+          name: 'Profissional',
+        };
+        const response = await TipoUsuario(tipoUsuario);
+
+        const dataForm = {
+          name: values.nome,
+          email: values.email,
+          password: values.senha,
+          cpf: values.cpf,
+          gender: values.identidadeGenero,
+          specialty: values.especialidade,
+          crmCrp: data.numeroConselho,
+          role_id: response.id,
+        };
+
         await RegisterUser(dataForm);
         setStep(5);
       } catch (error) {
@@ -268,15 +264,25 @@ const CadastroForm = () => {
             As pessoas trans sofrem diariamente desrespeito e violência verbal
             quanto à sua identidade de gênero. Um dos principais objetivos dessa
             plataforma é que essas pessoas possam ter atendimento médico sem
-            precisar se preocupar com esse tipo de discriminação. <br />
+            precisar se preocupar com esse tipo de discriminação.
+            <br />
             <br />
             Portanto, ao finalizar o seu cadastro você estará se comprometendo
             em tratar os pacientes e as pacientes trans que você tiver contato
             com o máximo respeito e empatia, assim como estará concordando com
-            nossos demais Termos de Uso e Responsabilidade. Combinado? ;)
+            nossos demais{' '}
+            <span style={{ textDecoration: 'underline' }}>
+              Termos de Uso e Responsabilidade.
+            </span>
+            <br /> <br /> Combinado? ;)
           </TextoInfo>
         </Informacoes>
-        <ButtonCadastro type="submit">Finalizar Cadastro</ButtonCadastro>
+        <ButtonCadastro
+          type="submit"
+          style={{ width: '195px', height: '56px', marginTop: '1rem' }}
+        >
+          Finalizar Cadastro
+        </ButtonCadastro>
       </FormCadastro>
     </>
   );
