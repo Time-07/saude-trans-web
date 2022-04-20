@@ -259,7 +259,7 @@ const CadastroForm = () => {
         </Especialidades>
 
         <Informacoes style={{ marginTop: '1rem' }}>
-          <TextoFinal>antes de continuar</TextoFinal>
+          <TextoFinal>Antes de continuar</TextoFinal>
           <TextoInfo style={{ marginTop: '1rem' }}>
             As pessoas trans sofrem diariamente desrespeito e violência verbal
             quanto à sua identidade de gênero. Um dos principais objetivos dessa
