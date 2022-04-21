@@ -9,6 +9,8 @@ import {
   ButtonSalvar,
   ContainerButton,
 } from './style';
+
+import { AtualizarDadosUsuario } from '../../../modules/user';
 import { showToast } from '../../../util/Toast';
 import { useFormik, ErrorMessage } from 'formik';
 import { useUserData } from '../../../context/useUserData';
