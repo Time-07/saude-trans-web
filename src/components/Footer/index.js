@@ -14,10 +14,10 @@ import {
   Icones,
 } from './style';
 
-const Footer = () => {
+const Footer = ({ height }) => {
   return (
     <>
-      <ContainerFooter>
+      <ContainerFooter height={height}>
         <div>
           <Logo src={LogoImg} alt="logoIoasys" />
           <Sobre>
