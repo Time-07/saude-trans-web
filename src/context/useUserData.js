@@ -8,18 +8,19 @@ export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [step, setStep] = useState(0);
   const navigate = useNavigate();
   const cookies = new Cookies();
 
-  const userLogout = useCallback(async function () {
+  const userLogout = async () => {
     setUser(null);
     setError(null);
     setLoading(false);
 
     cookies.remove('user-data');
     localStorage.clear();
-    navigate('/login');
-  }, []);
+    navigate('/');
+  };
 
   useEffect(() => {
     const newLocal = localStorage.getItem('user-data');
@@ -31,14 +32,14 @@ export function UserProvider({ children }) {
       const local = JSON.parse(newLocal);
       if (local) {
         setUser(local);
+        navigate('/perfil');
       } else {
         userLogout();
       }
     }
-  }, []);
+  }, [user]);
 
   const userLogin = async response => {
-    console.log(response);
     const user = {
       userId: response.userId,
       userRole: response.userRole,
@@ -63,6 +64,8 @@ export function UserProvider({ children }) {
         setError,
         loading,
         setLoading,
+        step,
+        setStep,
       }}
     >
       {children}
