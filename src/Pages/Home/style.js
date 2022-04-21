@@ -56,7 +56,6 @@ export const Saude = styled.div`
 `;
 export const TextHome = styled.p`
   max-width: 650px;
-
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -175,9 +174,9 @@ export const ContainerButton = styled.div`
   gap: 20px;
 `;
 export const ButtonnProfissional = styled(Link)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 303px;
   height: 48px;
   padding:12px ;
@@ -205,9 +204,9 @@ export const ButtonnProfissional = styled(Link)`
 `;
 
 export const ButtonnDonwload = styled.a`
-   display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 221px;
   height: 48px;
   padding:12px ;
@@ -256,6 +255,7 @@ export const ContainerDadosCenario = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 `;
 
 export const TituloHome3 = styled.h1`
@@ -283,7 +283,7 @@ export const Dados = styled.div`
   display: flex;
 `;
 
-export const TituloDados = styled.h1`
+export const TituloDados = styled.strong`
   font-family: 'Fredoka';
   font-style: normal;
   font-weight: 400;
@@ -307,6 +307,7 @@ export const ContainerAjudaProfissional = styled.div`
   background: #fff;
   justify-content: center;
   padding: 40px 0;
+  margin-bottom: 30px;
 `;
 
 export const WrapperAjudaProfissional = styled.div`
@@ -370,3 +371,41 @@ export const TextoAjudar = styled.p`
 `;
 
 export const DocPsico = styled.img``;
+
+export const ContainerInformativoAjuda = styled.div`
+  display:flex ;
+  flex-direction:row;
+  align-items:center;
+  gap:15px;
+  
+  border-radius:16px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 2000px;  
+  padding: 15px;
+  width: 600px;
+  background: #ECDBF4;
+  border: 1px solid #DFB0F2;
+  box sizing: border-box;
+  box-shadow: 0px 2px 6px rgba(215, 130, 248, 0.33);
+ 
+`;
+export const TituloAjuda = styled.p`
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  color: #1d1620;
+`;
+export const TextoAjudaInfo = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #111111;
+  text-align: center;
+`;
