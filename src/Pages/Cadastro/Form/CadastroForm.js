@@ -86,8 +86,8 @@ const CadastroForm = () => {
   return (
     <>
       <Texto>
-        Última etapa: preencha as informações para o seu acesso e suas
-        informações pessoais.
+        <strong> Última etapa:</strong>preencha as informações para o seu acesso
+        e suas informações pessoais.
       </Texto>
       <FormCadastro onSubmit={formik.handleSubmit} noValidate>
         <ContainerInput>
@@ -240,7 +240,7 @@ const CadastroForm = () => {
             <span className="checkmark" />
           </label>
           <label className="container">
-            Psicólogo
+            Psicólogo(a)
             <input
               type="radio"
               name="especialidade"
