@@ -9,18 +9,23 @@ import {
   ContainerButton,
 } from './style';
 import { conselhoCelular } from '../../../util/maskInput';
+import { showToast } from '../../../util/Toast';
+import InputMask from 'react-input-mask';
+import { useUserData } from '../../../context/useUserData';
 import { useFormik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { Alerta } from '../../Login/style';
 import Input from '../../../components/Input';
 
 const Contato = () => {
+  const { user, setUser, setStep } = useUserData();
+
   const formik = useFormik({
     initialValues: {
-      telefone: '',
-      whatsapp: '',
-      email: '',
-      linkedIn: '',
+      telefone: user.phone || '',
+      whatsapp: user.cellPhone || '',
+      email: user.email || '',
+      linkedIn: user.linkedin || '',
     },
     validationSchema: yup.object({
       whatsapp: yup.string().required('O campo é obrigatório'),
@@ -31,7 +36,21 @@ const Contato = () => {
     }),
 
     onSubmit: async values => {
-      console.log(values);
+      const dataForm = {
+        phone: values.telefone,
+        cellPhone: values.whatsapp,
+        email: values.email,
+        linkedin: values.linkedIn,
+      };
+
+      try {
+        // await AtualizarDadosUsuario(dataForm);
+        setUser({ ...user, ...dataForm });
+        setStep(3);
+        showToast('success', 'Dados Atualizados com sucesso');
+      } catch (error) {
+        showToast('error', 'Erro ao atualizar');
+      }
     },
   });
 
@@ -40,28 +59,40 @@ const Contato = () => {
       <TextoContato>Informações de Contato</TextoContato>
 
       <ContainerInput>
-        <Input
-          name="telefone"
-          type="text"
-          label="Telefone (Opcional)"
-          errors={formik.touched.telefone && formik.errors.telefone}
+        <InputMask
+          mask="(99) 99999-9999"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={conselhoCelular(formik.values.telefone)}
-          errorMsg={formik.errors.telefone}
-        />
+          value={formik.values.telefone}
+        >
+          {() => (
+            <Input
+              name="telefone"
+              type="text"
+              label="Telefone (Opcional)"
+              errors={formik.touched.telefone && formik.errors.telefone}
+              errorMsg={formik.errors.telefone}
+            />
+          )}
+        </InputMask>
       </ContainerInput>
       <ContainerInput>
-        <Input
-          name="whatsapp"
-          type="text"
-          label="WhatsApp"
-          errors={formik.touched.whatsapp && formik.errors.whatsapp}
+        <InputMask
+          mask="(99) 99999-9999"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={conselhoCelular(formik.values.whatsapp)}
-          errorMsg={formik.errors.whatsapp}
-        />
+          value={formik.values.whatsapp}
+        >
+          {() => (
+            <Input
+              name="whatsapp"
+              type="text"
+              label="WhatsApp"
+              errors={formik.touched.whatsapp && formik.errors.whatsapp}
+              errorMsg={formik.errors.whatsapp}
+            />
+          )}
+        </InputMask>
       </ContainerInput>
       <ContainerInput>
         <Input
