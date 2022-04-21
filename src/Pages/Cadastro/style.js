@@ -271,6 +271,11 @@ export const Especialidades = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    &:hover {
+      color: #744d83
+    }
+  }
   }
 
   .container input {
