@@ -84,7 +84,6 @@ export const ButtonLogin = styled.button`
   font-size: 16px;
   line-height: 24px;
   opacity: ${props => {
-    console.log(props);
     props.loading ? '0.7' : null;
   }};
 
