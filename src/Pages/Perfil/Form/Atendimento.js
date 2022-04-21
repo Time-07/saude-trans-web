@@ -9,22 +9,41 @@ import {
   ButtonSalvar,
   ContainerButton,
 } from './style';
+import { showToast } from '../../../util/Toast';
 import { useFormik, ErrorMessage } from 'formik';
+import { useUserData } from '../../../context/useUserData';
+
+import { currency } from '../../../util/maskInput';
 import * as yup from 'yup';
 import { Alerta } from '../../Login/style';
 import Input from '../../../components/Input';
 
 const Atendimento = () => {
+  const { user, setUser, setStep } = useUserData();
   const formik = useFormik({
     initialValues: {
-      precoConsulta: '',
-      atendimento: '',
-      convenio: '',
-      banheiroLocal: '',
+      precoConsulta: user.value || '',
+      atendimento: user.attendance || '',
+      convenio: user.healthPlan || '',
+      banheiroLocal: user.bathroomSpecific || '',
     },
     validationSchema: yup.object({}),
     onSubmit: async values => {
-      console.log(values);
+      const dataForm = {
+        value: values.precoConsulta,
+        attendance: values.atendimento,
+        healthPlan: values.convenio,
+        bathroomSpecific: values.banheiroLocal,
+      };
+
+      try {
+        // await AtualizarDadosUsuario(dataForm);
+        setUser({ ...user, ...dataForm });
+        setStep(2);
+        showToast('success', 'Dados Atualizados com sucesso');
+      } catch (error) {
+        showToast('error', 'Erro ao atualizar');
+      }
     },
   });
 
@@ -81,10 +100,10 @@ const Atendimento = () => {
           name="precoConsulta"
           type="text"
           label="Preço médio da consulta"
-          errors={formik.touched.precoConsulta && formik.errors.precoConsulta}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          value={formik.values.precoConsulta}
+          value={currency(formik.values.precoConsulta)}
+          errors={formik.touched.precoConsulta && formik.errors.precoConsulta}
           errorMsg={formik.errors.precoConsulta}
         />
       </ContainerInput>
@@ -125,9 +144,8 @@ const Atendimento = () => {
           <input
             type="radio"
             name="banheiroLocal"
-            value="sim"
-            checked={formik.values.especialidade === 'sim'}
-            onChange={() => formik.setFieldValue('especialidade', 'sim')}
+            checked={formik.values.banheiroLocal === 'sim'}
+            onChange={() => formik.setFieldValue('banheiroLocal', 'sim')}
           />
           <span className="checkmark" />
         </label>
@@ -136,9 +154,8 @@ const Atendimento = () => {
           <input
             type="radio"
             name="banheiroLocal"
-            value="nao"
-            checked={formik.values.especialidade === 'nao'}
-            onChange={() => formik.setFieldValue('especialidade', 'nao')}
+            checked={formik.values.banheiroLocal === 'nao'}
+            onChange={() => formik.setFieldValue('banheiroLocal', 'nao')}
           />
           <span className="checkmark" />
         </label>
@@ -147,9 +164,8 @@ const Atendimento = () => {
           <input
             type="radio"
             name="banheiroLocal"
-            value="nao"
-            checked={formik.values.especialidade === 'nao'}
-            onChange={() => formik.setFieldValue('especialidade', 'nao')}
+            checked={formik.values.banheiroLocal === 'naoatendo'}
+            onChange={() => formik.setFieldValue('banheiroLocal', 'naoatendo')}
           />
           <span className="checkmark" />
         </label>
