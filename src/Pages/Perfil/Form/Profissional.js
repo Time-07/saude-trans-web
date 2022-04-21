@@ -353,7 +353,7 @@ const Profissional = () => {
             <span className="checkmark" />
           </label>
           <label className="container">
-            Psicólogo
+            Psicólogo(a)
             <input
               type="radio"
               name="especialidade"
