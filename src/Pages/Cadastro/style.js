@@ -43,7 +43,7 @@ export const ContainerTitle = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  gap: 20px;
+  gap: 30px;
 `;
 
 export const TitleDoc = styled.h1`
@@ -83,6 +83,7 @@ export const Text = styled.p`
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5px;
+  padding-bottom: 20px;
 `;
 
 export const OpcaoCadastro = styled.div`
