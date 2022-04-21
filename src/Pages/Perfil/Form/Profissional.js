@@ -82,9 +82,9 @@ const Profissional = () => {
       identidadeGenero: yup.string().required('O campo é obrigatório'),
       especialidade: yup.string().required('O campo é obrigatório'),
     }),
-
     onSubmit: async values => {
       const dataForm = {
+        id: user.id,
         name: values.nome,
         crmCrp: values.numeroConselho,
         state: values.estado,
@@ -109,6 +109,7 @@ const Profissional = () => {
   return (
     <>
       <TextoContatoInfo>Informações do(a) contato</TextoContatoInfo>
+
       <FormProfissionais onSubmit={formik.handleSubmit} noValidate>
         <Contato>
           <Card>
