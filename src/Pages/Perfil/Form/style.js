@@ -101,7 +101,9 @@ export const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #c4c4c4;
+    background: #fae5e9;
+    border: 1px solid #e5c7f2;
+    box-shadow: 0px 2px 6px rgba(215, 130, 248, 0.33);
   }
   .img-upload:before {
     content: '';
@@ -118,7 +120,7 @@ export const Card = styled.div`
     border-radius: 50%;
     opacity: 0;
     transition: 0.5s ease;
-    background-color: #d1dbdfff;
+    background: #fae5e9;
   }
   .img-upload:hover:before {
     opacity: 1;
