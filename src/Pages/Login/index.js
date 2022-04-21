@@ -55,7 +55,7 @@ const Login = () => {
     <>
       <Header />
       <ContainerLogin>
-        <img src={Loginn} alt="" />
+        <img src={Loginn} alt="" style={{ height: '526px' }} />
 
         <WrapperLogin>
           <Form onSubmit={formik.handleSubmit} noValidate>
@@ -105,8 +105,8 @@ const Login = () => {
             </WrapperInput>
 
             <ContainerCriar>
-              <ButtonLogin type="submit" disabled={loading}>
-                Entrar
+              <ButtonLogin type="submit" loading={loading.toString()}>
+                {loading ? 'Carregando...' : 'Entrar'}
               </ButtonLogin>
               <TextCadastro> Ainda não tem uma conta?</TextCadastro>
               <Cadastro to="/cadastro">Cadastre-se</Cadastro>

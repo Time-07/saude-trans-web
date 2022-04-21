@@ -68,11 +68,11 @@ export const IconErro = styled.img`
 `;
 
 export const ButtonLogin = styled.button`
-  width: 97px;
+  min-width: 97px;
   height: 56px;
   margin: auto;
   border-radius: 8px;
-  cursor: pointer;
+  cursor: ${props => (props.loading ? 'pointer' : 'not-allowed')};
   background: #fcf1f3;
   border: 1px solid #f5a9b8;
   box-sizing: border-box;
@@ -83,10 +83,13 @@ export const ButtonLogin = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  
+  opacity: ${props => {
+    console.log(props);
+    props.loading ? '0.7' : null;
+  }};
+
   &:hover {
-    background: #F9D7DD;
-    }
+    background: #f9d7dd;
   }
 `;
 
