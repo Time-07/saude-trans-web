@@ -357,6 +357,13 @@ export const RespostaTexto = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 4px 5px rgba(215, 130, 248, 0.2);
   border-radius: 0px 0px 8px 8px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #2e2e2e;
 `;
 
 export const TextoAjudar = styled.p`
@@ -374,10 +381,10 @@ export const DocPsico = styled.img``;
 
 export const ContainerInformativoAjuda = styled.div`
   display:flex ;
-  flex-direction:row;
+  flex-direction:column;
   align-items:center;
-  gap:15px;
-  
+  gap:5px;
+
   border-radius:16px;
   position: absolute;
   left: 0;
