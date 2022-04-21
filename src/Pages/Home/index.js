@@ -3,9 +3,7 @@ import Header from '../../components/Header/';
 import Footer from '../../components/Footer';
 import Donwload from '../../assets/donwload.png';
 import Cadastro from '../../assets/cadastro.png';
-import IconTeste from '../../assets/iconTeste.png';
 import { ReactComponent as Seta } from '../../assets/setaBaixo.svg';
-
 import {
   ContainerInicial,
   ContainerTitulo,
@@ -44,6 +42,9 @@ import {
   ContainerDadosCenario,
   ContainerTextoAjudar,
   RespostaTexto,
+  ContainerInformativoAjuda,
+  TextoAjudaInfo,
+  TituloAjuda,
 } from './style.js';
 import DocPsicoo from '../../assets/home3.png';
 import Profissionais from '../../assets/Homepage4.png';
@@ -85,7 +86,6 @@ function PageHome() {
   return (
     <>
       <Header />
-
       <ContainerInicial>
         <ContainerTitulo>
           <WrapperTitulo>
@@ -93,9 +93,7 @@ function PageHome() {
               <TituloHome>
                 Respeito é um direito de todos, todas e todes.
               </TituloHome>
-
               <Saude> Saúde, também.</Saude>
-
               <TextHome>
                 Já imaginou deixar de buscar atendimento médico ou psicológico
                 por <strong> medo de sofrer discriminação? </strong> Essa é a
@@ -174,15 +172,14 @@ function PageHome() {
             <TituloHome3>O cenário atual</TituloHome3>
             <ContainerDadosCenario>
               <DocPsico src={DocPsicoo} />
-
               <DadosInformativos>
                 <Dados>
-                  <TituloDados>4 </TituloDados>
                   <TextoDados>
+                    <TituloDados>4 </TituloDados>
                     <span style={{ color: '#744D83', fontWeight: '700' }}>
-                      milhões{' '}
+                      milhões
                     </span>
-                    de pessoas trans no Brasil.{' '}
+                    de pessoas trans no Brasil.
                     <a
                       href="https://www.brasildefato.com.br/2021/11/22/brasil-tem-4-milhoes-de-pessoas-trans-e-nao-binarias-revela-estudo-da-unesp-inedito-no-pais#:~:text=Pesquisa%20in%C3%A9dita%20na%20Am%C3%A9rica%20Latina,212%2C6%20milh%C3%B5es%20de%20cidad%C3%A3os"
                       target="_blank"
@@ -193,11 +190,11 @@ function PageHome() {
                   </TextoDados>
                 </Dados>
                 <Dados>
-                  <TituloDados>85%</TituloDados>
                   <TextoDados>
+                    <TituloDados>85%</TituloDados>
                     dos homens trans declararam já ter precisado de atendimento
                     médico e deixado de procurar atendimento
-                    <strong>e não procurado. </strong>{' '}
+                    <strong>e não procurado. </strong>
                     <a
                       href="http://www.nuhufmg.com.br/homens-trans-relatorio2.pdf"
                       target="_blank"
@@ -210,8 +207,8 @@ function PageHome() {
               </DadosInformativos>
               <DadosInformativos>
                 <Dados>
-                  <TituloDados>40% </TituloDados>
                   <TextoDados>
+                    <TituloDados>40% </TituloDados>
                     das pessoas trans <strong>já tentaram o suícidio</strong> já
                     tentaram o suícidio,apontando uma necessidade urgente de
                     mais atendimento psicológico.{' '}
@@ -225,8 +222,8 @@ function PageHome() {
                   </TextoDados>
                 </Dados>
                 <Dados>
-                  <TituloDados>35</TituloDados>
                   <TextoDados>
+                    <TituloDados>35</TituloDados>
                     <span style={{ color: '#744D83', fontWeight: '700' }}>
                       anos
                     </span>
@@ -252,7 +249,6 @@ function PageHome() {
             <TituloHome3>
               Como um(a) profissional da saúde pode ajudar
             </TituloHome3>
-
             <div
               style={{
                 display: 'flex',
@@ -282,53 +278,14 @@ function PageHome() {
             </div>
           </WrapperAjudaProfissional>
         </ContainerAjudaProfissional>
-        {/* <div
-          style={{
-            position: 'absolute',
-            left: ' 300px',
-            top: '2000px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '15px',
-            padding: '20px',
-            width: '600px',
-            height: '150px',
-            background: '#ECDBF4',
-            border: '1px solid #DFB0F2',
-            boxSizing: 'border-box',
-            boxShadow: '0px 2px 6px rgba(215, 130, 248, 0.33)',
-            borderRadius: '16px',
-          }}
-        >
-          <h1
-            style={{
-              fontFamily: 'Fredoka',
-              fontStyle: ' normal',
-              fontWeight: '400',
-              fontSize: '36px',
-              lineHeight: ' 44px',
-              color: '#1D1620',
-            }}
-          >
-            Vamos mudar essa história?
-          </h1>
-          <p
-            style={{
-              fontFamily: 'Inter',
-              fontStyle: ' normal',
-              fontWeight: '400',
-              fontSize: '14px',
-              lineHeight: ' 20px',
-              color: '#111111',
-            }}
-          >
+        <ContainerInformativoAjuda>
+          <TituloAjuda>Vamos mudar essa história?</TituloAjuda>
+          <TextoAjudaInfo>
             Estamos em busca de ginecologistas, psicólogos(as),
             endócrinologistas, urologistas e psiquiatras dispostos a oferecer
             atendimento digno ao público trans. Gostaria de ser um aliado ou
             aliada dessa causa? Anuncie hoje mesmo seu perfil no DiverSaúde!
-          </p>
+          </TextoAjudaInfo>
           <ButtonTitulo
             to="/cadastro"
             style={{
@@ -338,7 +295,7 @@ function PageHome() {
           >
             Cadastre-se
           </ButtonTitulo>
-        </div> */}
+        </ContainerInformativoAjuda>
       </ContainerInicial>
       <Footer />
     </>
