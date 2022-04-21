@@ -1,7 +1,27 @@
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const api = axios.create({
   baseURL: 'https://camp-api-docker-v3.herokuapp.com/api/v1/',
 });
 
-export { api };
+const ServicesAPIToken = axios.create({
+  baseURL: 'https://camp-api-docker-v3.herokuapp.com/api/v1/',
+});
+
+ServicesAPIToken.interceptors.request.use(
+  config => {
+    const token = cookies.get('user-data-token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  err => {
+    Promise.reject(err);
+  },
+);
+
+export { api, ServicesAPIToken };

@@ -56,7 +56,6 @@ export const Saude = styled.div`
 `;
 export const TextHome = styled.p`
   max-width: 650px;
-
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -175,9 +174,9 @@ export const ContainerButton = styled.div`
   gap: 20px;
 `;
 export const ButtonnProfissional = styled(Link)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 303px;
   height: 48px;
   padding:12px ;
@@ -205,9 +204,9 @@ export const ButtonnProfissional = styled(Link)`
 `;
 
 export const ButtonnDonwload = styled.a`
-   display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 221px;
   height: 48px;
   padding:12px ;
@@ -256,6 +255,7 @@ export const ContainerDadosCenario = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 `;
 
 export const TituloHome3 = styled.h1`
@@ -283,7 +283,7 @@ export const Dados = styled.div`
   display: flex;
 `;
 
-export const TituloDados = styled.h1`
+export const TituloDados = styled.strong`
   font-family: 'Fredoka';
   font-style: normal;
   font-weight: 400;
@@ -303,8 +303,11 @@ export const TextoDados = styled.p`
 
 export const ContainerAjudaProfissional = styled.div`
   width: 100%;
-  height: 644px;
-  background: #fefaff;
+  display: flex;
+  background: #fff;
+  justify-content: center;
+  padding: 40px 0;
+  margin-bottom: 30px;
 `;
 
 export const WrapperAjudaProfissional = styled.div`
@@ -324,17 +327,92 @@ export const ParaAjudar = styled.div`
 export const PossoAjudar = styled.div`
   display: flex;
   flex-direction: column;
-  width: 520px;
-  height: 48px;
+  cursor: pointer;
+  width: 588px;
+  background: #ffffff;
+  box-sizing: border-box;
 `;
+export const ContainerTextoAjudar = styled.div`
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 8px 32px;
+  background: #ffffff;
+  border: 1px solid #dfb0f2;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 5px rgba(215, 130, 248, 0.2);
+  border-radius: 8px 8px 0px 0px;
+`;
+export const RespostaTexto = styled.div`
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  background: #ffffff;
+  padding: 14px 24px;
+  border: 1px solid #dfb0f2;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 5px rgba(215, 130, 248, 0.2);
+  border-radius: 0px 0px 8px 8px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #2e2e2e;
+`;
+
 export const TextoAjudar = styled.p`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
+  width: 95%;
   font-size: 16px;
   line-height: 24px;
-  color: #000000;
-  padding: 20px;
+  letter-spacing: 0.5px;
+  color: #111111;
 `;
 
 export const DocPsico = styled.img``;
+
+export const ContainerInformativoAjuda = styled.div`
+  display:flex ;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+
+  border-radius:16px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 2000px;  
+  padding: 15px;
+  width: 600px;
+  background: #ECDBF4;
+  border: 1px solid #DFB0F2;
+  box sizing: border-box;
+  box-shadow: 0px 2px 6px rgba(215, 130, 248, 0.33);
+ 
+`;
+export const TituloAjuda = styled.p`
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  color: #1d1620;
+`;
+export const TextoAjudaInfo = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #111111;
+  text-align: center;
+`;

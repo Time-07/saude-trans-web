@@ -10,9 +10,8 @@ export const Container = styled.div`
     flex-direction: column;
     width: 100%;
     position: relative;
-    border: 1px solid ${props => (props.errors ? '#c0392b' : '#DFB0F2')};
+    border: 1px solid ${props => (props.errors ? '#c0392b' : '#5a5a5a')};
     border-radius: 8px;
-    box-shadow: 0px 4px 5px rgba(215, 130, 248, 0.2);
   }
 
   #float-label input {
@@ -47,6 +46,7 @@ export const Container = styled.div`
   }
   #float-label:focus-within label {
     transform: translate(0, 8px) scale(0.75);
+    color: #dfb0f2;
   }
 
   #float-label .Active {

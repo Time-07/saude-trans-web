@@ -12,13 +12,13 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   padding-top: 80px;
   height: 100%;
+  gap: 20px;
   padding-bottom: 80px;
-  overflow: auto;
   width: 100%;
-  background: #ecdbf4;
+  background: #f5edf8; ;
 `;
 
 export const ContainerCadastro = styled.div`
@@ -43,7 +43,7 @@ export const ContainerTitle = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  gap: 20px;
+  gap: 30px;
 `;
 
 export const TitleDoc = styled.h1`
@@ -83,6 +83,7 @@ export const Text = styled.p`
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.5px;
+  padding-bottom: 20px;
 `;
 
 export const OpcaoCadastro = styled.div`
@@ -271,6 +272,11 @@ export const Especialidades = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    &:hover {
+      color: #744d83
+    }
+  }
   }
 
   .container input {
@@ -294,7 +300,7 @@ export const Especialidades = styled.div`
   }
 
   .container input:checked ~ .checkmark {
-    background-color: #000;
+    background-color: #744d83;
   }
 
   .checkmark:after {
@@ -318,21 +324,30 @@ export const Especialidades = styled.div`
 `;
 
 export const ButtonFinal = styled.button`
-  border-radius: 10px;
-  color: #000;
+  width: 165px;
+  height: 56px;
+  padding: 16px 24px;
+  margin: auto;
+  border-radius: 8px;
   cursor: pointer;
-  width: 256px;
-  height: 64px;
-  outline: none;
-  border: none;
-  margin-top: 1rem;
+  color: #000;
+  background: #fcf1f3;
+  border: 1px solid #f5a9b8;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 32px;
-  background-color: #a4a4a4;
-  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+ 
   &:hover {
-    background-color: #cacaca;
+    background: #F9D7DD;
+    }
   }
+`;
+export const IconErro = styled.img`
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
 `;

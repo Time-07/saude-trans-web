@@ -42,7 +42,7 @@ const MedicoForm = () => {
   return (
     <>
       <Texto>
-        Agora insira o seu registro do CRM* e o estado no qual foi emitido!
+        Agora insira o seu registro do CRM* e o estado onde foi emitido!
       </Texto>
       <ContainerForm style={{ marginTop: '1rem' }}>
         <FormContainer onSubmit={formik.handleSubmit} noValidate>
@@ -55,7 +55,7 @@ const MedicoForm = () => {
               justifyContent: 'center',
             }}
           >
-            <div style={{ width: '240px' }}>
+            <div style={{ width: '50%' }}>
               <Input
                 name="numeroConselho"
                 type="text"
@@ -74,7 +74,7 @@ const MedicoForm = () => {
               error={
                 formik.errors.language && formik.touched.language ? true : false
               }
-              sx={{ width: '240px' }}
+              sx={{ width: '50%' }}
             >
               <InputLabel id="selectlinguagem">Estado</InputLabel>
               <Select

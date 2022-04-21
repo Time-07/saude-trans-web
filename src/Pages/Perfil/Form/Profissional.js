@@ -10,9 +10,12 @@ import {
   ButtonSalvar,
   ContainerButton,
 } from './style';
-
+import { showToast } from '../../../util/Toast';
+import { AtualizarDadosUsuario } from '../../../modules/user';
+import { useUserData } from '../../../context/useUserData';
 import { TextoContatoInfo } from '../style';
 import { conselhoMask } from '../../../util/maskInput';
+import InputMask from 'react-input-mask';
 import perfil from '../../../assets/logoo.jpeg';
 import Avatar from '../../../assets/avatar.png';
 import Input from '../../../components/Input';
@@ -27,8 +30,23 @@ import {
 import * as yup from 'yup';
 import { Alerta } from '../../Login/style';
 import { useFormik, ErrorMessage } from 'formik';
+const number = 123456.789;
 
 const Profissional = () => {
+  const { user, setUser, setStep } = useUserData();
+
+  const initialValues = {
+    nome: user.name,
+    numeroConselho: user.crmCrp,
+    estado: user.state || '',
+    cidade: user.city || '',
+    endereco: user.address || '',
+    numeroEndereco: user.number || '',
+    complemento: '',
+    identidadeGenero: user.gender || '',
+    especialidade: user.specialty || '',
+    image: undefined,
+  };
   const [imageUpload, setImageUpload] = useState({
     file: '',
     imagePreviewUrl: Avatar,
@@ -52,56 +70,54 @@ const Profissional = () => {
   };
 
   const formik = useFormik({
-    initialValues: {
-      nome: '',
-      numeroConselho: '',
-      estadoConselho: '',
-      cidade: '',
-      endereço: '',
-      numeroEndereco: '',
-      complemento: '',
-      identidadeGenero: '',
-      especialidade: '',
-      image: undefined,
-    },
+    initialValues: initialValues,
     validationSchema: yup.object({
       nome: yup.string().required('O campo é obrigatório'),
       numeroConselho: yup
         .string()
         .min(8, 'Numero Incompleto')
         .required('O campo é obrigatório'),
-      estadoConselho: yup.string().required('O campo é obrigatório'),
+      estado: yup.string().required('O campo é obrigatório'),
+      cidade: yup.string().required('O campo é obrigatório'),
       identidadeGenero: yup.string().required('O campo é obrigatório'),
       especialidade: yup.string().required('O campo é obrigatório'),
     }),
-
     onSubmit: async values => {
-      // const dataForm = {
-      //   name: values.name,
-      //   crmCrp: data.numeroConselho,
+      const dataForm = {
+        id: user.id,
+        name: values.nome,
+        crmCrp: values.numeroConselho,
+        state: values.estado,
+        city: values.cidade,
+        address: values.endereco,
+        number: values.numeroEndereco,
+        gender: values.identidadeGenero,
+        specialty: values.especialidade,
+      };
 
-      //   gender: values.identidadeGenero,
-      //   specialty: values.especialidade,
-      // };
-      console.log(values);
-      // try {
-      //   await RegisterUser(dataForm);
-      //   setStep(5);
-      // } catch (error) {
-      //   Alerta('Erro ao cadastrar', 'error');
-      // }
+      try {
+        // await AtualizarDadosUsuario(dataForm);
+        setUser({ ...user, ...dataForm });
+        setStep(1);
+        showToast('success', 'Dados Atualizados com sucesso');
+      } catch (error) {
+        showToast('error', 'Erro ao atualizar');
+      }
     },
   });
+
   return (
     <>
       <TextoContatoInfo>Informações do(a) contato</TextoContatoInfo>
+
       <FormProfissionais onSubmit={formik.handleSubmit} noValidate>
         <Contato>
           <Card>
             <label htmlFor="photo-upload" className="custom-file-upload fas">
               <div className="img-wrap img-upload">
-                <img src={imageUpload?.imagePreviewUrl || Avatar} alt="" />
+                <img src={imageUpload?.imagePreviewUrl || Avatar} alt="" />{' '}
               </div>
+
               <input
                 name="image"
                 id="photo-upload"
@@ -128,39 +144,42 @@ const Profissional = () => {
           />
         </ContainerInput>
         <ContainerInput>
-          <Input
-            name="numeroConselho"
-            type="text"
-            label="CRM/CRP"
-            errors={
-              formik.touched.numeroConselho && formik.errors.numeroConselho
-            }
+          <InputMask
+            mask="99/999999"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={conselhoMask(formik.values.numeroConselho)}
-            errorMsg={formik.errors.numeroConselho}
-          />
+            value={formik.values.numeroConselho}
+          >
+            {() => (
+              <Input
+                name="numeroConselho"
+                type="text"
+                label="CRM/CRP"
+                errors={
+                  formik.touched.numeroConselho && formik.errors.numeroConselho
+                }
+                errorMsg={formik.errors.numeroConselho}
+              />
+            )}
+          </InputMask>
         </ContainerInput>
         <ContainerInput>
           <FormControl
             fullWidth
-            error={
-              formik.errors.estadoConselho && formik.touched.estadoConselho
-                ? true
-                : false
-            }
+            error={formik.errors.estado && formik.touched.estado ? true : false}
             sx={{ width: '100%' }}
           >
             <InputLabel id="selectlinguagem">Estado</InputLabel>
             <Select
-              name="estadoConselho"
+              name="estado"
               labelId="selectlinguagem"
-              value={formik.values.estadoConselho}
+              value={formik.values.estado}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               label="Estado"
               sx={{ height: '67px', borderRadius: '8px' }}
             >
+              <MenuItem value="">Selecione um estado</MenuItem>
               {estadosCidades?.estados.map(estado => (
                 <MenuItem key={estado.sigla} value={estado.sigla}>
                   {estado.nome}
@@ -168,8 +187,8 @@ const Profissional = () => {
               ))}
             </Select>
             <FormHelperText sx={{ color: '#c0392b', fontSize: '14px' }}>
-              {formik.touched.estadoConselho && formik.errors.estadoConselho
-                ? formik.errors.estadoConselho
+              {formik.touched.estado && formik.errors.estado
+                ? formik.errors.estado
                 : null}
             </FormHelperText>
           </FormControl>
@@ -178,7 +197,7 @@ const Profissional = () => {
           <FormControl
             fullWidth
             error={formik.errors.cidade && formik.touched.cidade ? true : false}
-            disabled={!formik.values.estadoConselho}
+            disabled={!formik.values.estado}
             sx={{ width: '100%' }}
           >
             <InputLabel id="selectCidade">Cidade</InputLabel>
@@ -187,15 +206,13 @@ const Profissional = () => {
               labelId="selectCidade"
               value={formik.values.cidade || ''}
               onBlur={formik.handleBlur}
-              disabled={!formik.values.estadoConselho}
+              disabled={!formik.values.estado}
               onChange={formik.handleChange}
               label="Cidade"
               sx={{ height: '67px', borderRadius: '8px' }}
             >
               {estadosCidades?.estados
-                .filter(
-                  estado => estado.sigla === formik.values.estadoConselho,
-                )[0]
+                .filter(estado => estado.sigla === formik.values.estado)[0]
                 ?.cidades?.map(cidade => (
                   <MenuItem key={cidade} value={cidade}>
                     {cidade}
@@ -211,14 +228,14 @@ const Profissional = () => {
         </ContainerInput>
         <ContainerInput>
           <Input
-            name="endereço"
+            name="endereco"
             type="text"
             label="Endereço (opcional)"
-            errors={formik.touched.endereço && formik.errors.endereço}
+            errors={formik.touched.endereco && formik.errors.endereco}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.endereço}
-            errorMsg={formik.errors.endereço}
+            value={formik.values.endereco}
+            errorMsg={formik.errors.endereco}
           />
         </ContainerInput>
         <ContainerInput>
@@ -337,7 +354,7 @@ const Profissional = () => {
             <span className="checkmark" />
           </label>
           <label className="container">
-            Psicólogo
+            Psicólogo(a)
             <input
               type="radio"
               name="especialidade"
@@ -356,7 +373,7 @@ const Profissional = () => {
         </Especialidades>
 
         <ContainerButton>
-          <ButtonSalvar type="submit">Salvar e Continuar</ButtonSalvar>{' '}
+          <ButtonSalvar type="submit">Salvar e Continuar</ButtonSalvar>
         </ContainerButton>
       </FormProfissionais>
     </>

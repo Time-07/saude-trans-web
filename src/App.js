@@ -1,16 +1,22 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { CadastroProvider } from './context/useCadastro';
+import { UserProvider } from './context/useUserData';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <BrowserRouter>
       <CadastroProvider>
-        <Routes />
-        <GlobalStyle />
+        <UserProvider>
+          <Routes />
+          <GlobalStyle />
+        </UserProvider>
       </CadastroProvider>
+      <ToastContainer />
     </BrowserRouter>
   );
 }

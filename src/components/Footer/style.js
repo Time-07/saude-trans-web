@@ -8,10 +8,16 @@ export const Logo = styled.img`
 export const ContainerFooter = styled.footer`
   background: #744d83;
   display: flex;
-  justify-content: space-around;
   width: 100%;
-  height: 284px;
-  align-items: center;
+  height: ${props => (props.height ? '384px' : '280px')};
+  align-items: flex-end;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: 50px;
+  }
 `;
 export const Sobre = styled.div`
   width: 282px;
@@ -70,4 +76,7 @@ export const TextFim = styled.p`
   color: #d9d9d9;
   text-align: center;
   padding-top: 10px;
+`;
+export const Icones = styled.img`
+  margin-right: 10px;
 `;

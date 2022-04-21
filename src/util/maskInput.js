@@ -13,6 +13,13 @@ export const conselhoCelular = value => {
     .replace(/(-\d{4})\d+?$/, '$1');
 };
 
+export function currency(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d)(\d{2})$/, '$1,$2')
+    .replace(/(?=(\d{3})+(\D))\B/g, '.');
+}
+
 export const cpfMask = value => {
   return value
     .replace(/\D/g, '') // substitui qualquer caracter que nao seja numero por nada
