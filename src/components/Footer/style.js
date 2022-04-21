@@ -11,12 +11,13 @@ export const ContainerFooter = styled.footer`
   width: 100%;
   height: 384px;
   align-items: flex-end;
+
   & > div {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    padding-bottom: 16px;
+    padding-bottom: 50px;
   }
 `;
 export const Sobre = styled.div`
@@ -76,4 +77,7 @@ export const TextFim = styled.p`
   color: #d9d9d9;
   text-align: center;
   padding-top: 10px;
+`;
+export const Icones = styled.img`
+  margin-right: 10px;
 `;

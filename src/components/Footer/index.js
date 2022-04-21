@@ -1,5 +1,6 @@
 import React from 'react';
 import LogoImg from '../../assets/logoo.jpeg';
+import Contato from '../../assets/email.svg';
 import {
   Logo,
   ContainerFooter,
@@ -10,6 +11,7 @@ import {
   TituloSobre,
   TextSobre,
   OpcaoConta,
+  Icones,
 } from './style';
 
 const Footer = () => {
@@ -21,26 +23,10 @@ const Footer = () => {
           <Sobre>
             <TituloSobre>Sobre</TituloSobre>
             <TextSobre>
-              DiverSaúde é uma iniciativa sem fins lucrativos criada para unir
-              pessoas trasns em busca de atendimento médico e psicológico a
-              profissionais aliados(as) e preparados(as) para tratar (bem) esse
-              público.
+              DiverSaúde é uma iniciativa criada para conectar pessoas trans a
+              profissionais da saúde interessados(as) em oferecer um tratamento
+              digno, diminuindo a violência sofrida por essas pessoas.
             </TextSobre>
-
-            <a
-              href="mailto:contato@diversaude.com.br"
-              style={{
-                color: '#fff',
-                textDecoration: 'none',
-                fontFamily: 'Inter',
-                fontStyle: 'normal',
-                fontWeight: '400',
-                fontSize: '12px',
-                lineHeight: '16px',
-              }}
-            >
-              Fale conosco:contato@diversaude.com.br
-            </a>
           </Sobre>
           <Conta>
             <TituloSobre>DiverSaúde</TituloSobre>
@@ -57,6 +43,24 @@ const Footer = () => {
                 </OpcaoConta>
               </ul>
             </nav>
+          </Conta>
+          <Conta>
+            <TituloSobre>Fale conosco</TituloSobre>
+            <a
+              href="mailto:contato@diversaude.com.br"
+              style={{
+                color: '#fff',
+                textDecoration: 'none',
+                fontFamily: 'Inter',
+                fontStyle: 'normal',
+                fontWeight: '400',
+                fontSize: '12px',
+                lineHeight: '16px',
+              }}
+            >
+              <Icones src={Contato} alt="" />
+              contato@diversaude.com.br
+            </a>
           </Conta>
         </div>
       </ContainerFooter>
