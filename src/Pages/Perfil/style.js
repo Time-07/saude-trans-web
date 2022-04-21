@@ -116,12 +116,28 @@ export const PerfilProfissinal = styled.div`
 `;
 export const PerfilLeft = styled.div`
   width: 282px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #ffffff;
   border: 1px solid rgba(219, 152, 245, 0.33);
   box-sizing: border-box;
   box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
   border-radius: 16px;
+`;
+
+export const ContainerStatus = styled.div`
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(219, 152, 245, 0.33);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px rgba(181, 181, 181, 0.33);
+  border-radius: 16px;
+  gap: 8px;
 `;
 
 export const PerfilRight = styled.div`
@@ -199,4 +215,21 @@ export const ButtonAtivar = styled.button`
     background: #F9D7DD;
     }
   }
+`;
+
+export const DescricaoStatus = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  color: #111111;
+`;
+
+export const TituloStatus = styled.h2`
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  color: #2e982c;
 `;
