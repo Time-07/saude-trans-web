@@ -42,7 +42,7 @@ const MedicoForm = () => {
   return (
     <>
       <Texto>
-        Agora insira o seu registro do CRM* e o estado no qual foi emitido!
+        Agora insira o seu registro do CRM* e o estado onde foi emitido!
       </Texto>
       <ContainerForm style={{ marginTop: '1rem' }}>
         <FormContainer onSubmit={formik.handleSubmit} noValidate>
