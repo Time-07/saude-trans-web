@@ -9,9 +9,8 @@ export const ContainerFooter = styled.footer`
   background: #744d83;
   display: flex;
   width: 100%;
-  height: 384px;
+  height: ${props => (props.height ? '384px' : '280px')};
   align-items: flex-end;
-
   & > div {
     display: flex;
     align-items: center;
