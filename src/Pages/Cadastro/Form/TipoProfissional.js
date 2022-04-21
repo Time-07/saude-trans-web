@@ -28,7 +28,7 @@ const TipoProfissional = () => {
   return (
     <>
       <Text>
-        Antes de iniciarmos o Cadastro, selecione abaixo o seu tipo de atuação.
+        Antes de iniciarmos o Cadastro, selecione o seu tipo de atuação.
       </Text>
       <ContainerFormTipoProfissional>
         <Profissionais onClick={clickMedico}>
