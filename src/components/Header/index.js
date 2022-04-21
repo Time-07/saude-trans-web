@@ -29,7 +29,7 @@ const Header = () => {
               <Icone src={Iconee} alt="logoIoasys" />
             </span>
             <div className="dropdown-content">
-              <Login to="/perfil">
+              <Login to="#">
                 <Icone src={Donwload} alt="logoIoasys" />
                 Download do app
               </Login>
