@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LogoImg from '../../assets/logoo.jpeg';
 import Apresentacao from './Form/Apresentacao';
 import Atendimento from './Form/Atendimento';
@@ -24,86 +24,98 @@ import {
   MenuButtons,
   ButtonAtivar,
   DocPsico,
+  MenuItemHome,
 } from './style';
 import DocPsicoo from '../../assets/docpsico.png';
+import { DadosUsuario } from '../../modules/user';
 
 function Perfil() {
-  const { userLogout } = useUserData();
-  const [active, setActive] = useState(0);
+  const { user, setUser, userLogout, loading, setLoading, step, setStep } =
+    useUserData();
+  const [statusCode, setStatusCode] = useState(null);
 
-  return (
-    <Conatiner>
-      <ContainerPerfil>
-        <Logo src={LogoImg} alt="logoIoasys" />
-        <ContainerMenuPerfil>
-          <MenuItem>Perfil</MenuItem>
-          <MenuItem>Avaliações</MenuItem>
-          <MenuItem onClick={() => userLogout()}>Sair</MenuItem>
-        </ContainerMenuPerfil>
-      </ContainerPerfil>
+  useEffect(() => {
+    setLoading(true);
+    async function getDadosUsuario() {
+      try {
+        const local = JSON.parse(localStorage.getItem('user-data'));
+        const response = await DadosUsuario(local.userId);
 
-      <Wrapper>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            gap: '120px',
-          }}
-        >
-          <InicioPerfil>
-            <TextoPerfil>Perfil profissional</TextoPerfil>
-            <TextoInformativo>
-              Preencha os campos abaixo para completar o seu perfil e
-              disponibilizá-lo no DIVERSAÚDE.
-            </TextoInformativo>
-          </InicioPerfil>
-          <DocPsico src={DocPsicoo} />
-        </div>
+        setUser(state => ({ ...state, ...response.data }));
+        setStatusCode(response.status);
+      } catch (error) {
+        console.log('error', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getDadosUsuario();
+  }, []);
 
-        <PerfilProfissinal>
-          <PerfilLeft>
-            <TextPerfil>Perfil</TextPerfil>
+  if (statusCode === 200)
+    return (
+      <Conatiner>
+        <ContainerPerfil>
+          <Logo src={LogoImg} alt="logoIoasys" />
+          <ContainerMenuPerfil>
+            <MenuItemHome to="/">Home</MenuItemHome>
+            <MenuItem>Perfil</MenuItem>
+            <MenuItem>Informe-se</MenuItem>
+            <MenuItem onClick={() => userLogout()}>Sair</MenuItem>
+          </ContainerMenuPerfil>
+        </ContainerPerfil>
 
-            <MenuButtons>
-              <ButtonPublicar
-                active={active === 0}
-                onClick={() => setActive(0)}
-              >
-                Profissional
-              </ButtonPublicar>
-              <ButtonPublicar
-                active={active === 1}
-                onClick={() => setActive(1)}
-              >
-                Atendimento
-              </ButtonPublicar>
-              <ButtonPublicar
-                active={active === 2}
-                onClick={() => setActive(2)}
-              >
-                Contato
-              </ButtonPublicar>
-              <ButtonPublicar
-                active={active === 3}
-                onClick={() => setActive(3)}
-              >
-                Apresentação
-              </ButtonPublicar>
-              <ButtonAtivar>Ativar publicação</ButtonAtivar>
-            </MenuButtons>
-          </PerfilLeft>
+        <Wrapper>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '120px',
+            }}
+          >
+            <InicioPerfil>
+              <TextoPerfil>Perfil profissional</TextoPerfil>
+              <TextoInformativo>
+                Preencha os campos abaixo para completar o seu perfil e
+                disponibilizá-lo no DIVERSAÚDE.
+              </TextoInformativo>
+            </InicioPerfil>
+            <DocPsico src={DocPsicoo} />
+          </div>
 
-          <PerfilRight>
-            {active === 0 && <Profissional />}
-            {active === 1 && <Atendimento />}
-            {active === 2 && <Contato />}
-            {active === 3 && <Apresentacao />}
-          </PerfilRight>
-        </PerfilProfissinal>
-      </Wrapper>
-      <Footer />
-    </Conatiner>
-  );
+          <PerfilProfissinal>
+            <PerfilLeft>
+              <TextPerfil>Perfil</TextPerfil>
+
+              <MenuButtons>
+                <ButtonPublicar active={step === 0} onClick={() => setStep(0)}>
+                  Profissional
+                </ButtonPublicar>
+                <ButtonPublicar active={step === 1} onClick={() => setStep(1)}>
+                  Atendimento
+                </ButtonPublicar>
+                <ButtonPublicar active={step === 2} onClick={() => setStep(2)}>
+                  Contato
+                </ButtonPublicar>
+                <ButtonPublicar active={step === 3} onClick={() => setStep(3)}>
+                  Apresentação
+                </ButtonPublicar>
+                <ButtonAtivar>Ativar publicação</ButtonAtivar>
+              </MenuButtons>
+            </PerfilLeft>
+
+            <PerfilRight>
+              {step === 0 && <Profissional />}
+              {step === 1 && <Atendimento />}
+              {step === 2 && <Contato />}
+              {step === 3 && <Apresentacao />}
+            </PerfilRight>
+          </PerfilProfissinal>
+        </Wrapper>
+        <Footer />
+      </Conatiner>
+    );
+  return null;
 }
 
 export default Perfil;
