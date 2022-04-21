@@ -19,7 +19,7 @@ export const FormProfissionais = styled.form`
 export const FormAtendimento = styled.form`
   width: 100%;
   background: #fff;
-  padding: 32px;
+  padding: 0px 32px;
   border-radius: 16px;
 `;
 export const FormContato = styled.form`
@@ -72,9 +72,7 @@ export const TitleEspecialista = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-
   color: #6f6f6f;
-
   flex-grow: 0;
   margin: 8px 0px;
 `;
@@ -163,6 +161,10 @@ export const Especialidades = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    &:hover {
+      color: #744d83;
+    }
   }
 
   .container input {
@@ -238,7 +240,6 @@ export const TextoAtendimento = styled.h1`
   line-height: 120%;
   text-align: center;
   color: #000000;
-  margin-top: 32px;
 `;
 export const TextoContato = styled.h1`
   font-family: 'Fredoka';
