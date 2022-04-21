@@ -1,4 +1,4 @@
-import { api } from '../service/api';
+import { api, ServicesAPIToken } from '../service/api';
 
 export const loginUser = async values => {
   const response = await api.post(`auth/login`, values);
@@ -19,7 +19,12 @@ export const TipoUsuario = async values => {
 };
 
 export const DadosUsuario = async id => {
-  const response = await api.post(`users${id}`);
+  const response = await ServicesAPIToken.get(`users/${id}`);
+  return response;
+};
+
+export const AtualizarDadosUsuario = async values => {
+  const response = await ServicesAPIToken.patch(`users`, values);
   const { data } = response;
   return data;
 };
