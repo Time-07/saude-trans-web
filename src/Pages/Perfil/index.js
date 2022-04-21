@@ -5,6 +5,7 @@ import Atendimento from './Form/Atendimento';
 import Contato from './Form/Contato';
 import Profissional from './Form/Profissional';
 import Footer from '../../components/Footer';
+import ModalAviso from '../../components/ModalAviso';
 import { useUserData } from '../../context/useUserData';
 import {
   ContainerPerfil,
@@ -25,6 +26,9 @@ import {
   ButtonAtivar,
   DocPsico,
   MenuItemHome,
+  DescricaoStatus,
+  TituloStatus,
+  ContainerStatus,
 } from './style';
 import DocPsicoo from '../../assets/docpsico.png';
 import { DadosUsuario } from '../../modules/user';
@@ -84,25 +88,50 @@ function Perfil() {
           </div>
 
           <PerfilProfissinal>
-            <PerfilLeft>
-              <TextPerfil>Perfil</TextPerfil>
+            <div
+              style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}
+            >
+              <PerfilLeft>
+                <TextPerfil>Perfil</TextPerfil>
 
-              <MenuButtons>
-                <ButtonPublicar active={step === 0} onClick={() => setStep(0)}>
-                  Profissional
-                </ButtonPublicar>
-                <ButtonPublicar active={step === 1} onClick={() => setStep(1)}>
-                  Atendimento
-                </ButtonPublicar>
-                <ButtonPublicar active={step === 2} onClick={() => setStep(2)}>
-                  Contato
-                </ButtonPublicar>
-                <ButtonPublicar active={step === 3} onClick={() => setStep(3)}>
-                  Apresentação
-                </ButtonPublicar>
-                <ButtonAtivar>Ativar publicação</ButtonAtivar>
-              </MenuButtons>
-            </PerfilLeft>
+                <MenuButtons>
+                  <ButtonPublicar
+                    active={step === 0}
+                    onClick={() => setStep(0)}
+                  >
+                    Profissional
+                  </ButtonPublicar>
+                  <ButtonPublicar
+                    active={step === 1}
+                    onClick={() => setStep(1)}
+                  >
+                    Atendimento
+                  </ButtonPublicar>
+                  <ButtonPublicar
+                    active={step === 2}
+                    onClick={() => setStep(2)}
+                  >
+                    Contato
+                  </ButtonPublicar>
+                  <ButtonPublicar
+                    active={step === 3}
+                    onClick={() => setStep(3)}
+                  >
+                    Apresentação
+                  </ButtonPublicar>
+                  <ButtonAtivar>Ativar publicação</ButtonAtivar>
+                </MenuButtons>
+              </PerfilLeft>
+              <ContainerStatus>
+                <DescricaoStatus>No momento, o perfil está:</DescricaoStatus>
+                <TituloStatus>Ativo</TituloStatus>
+                <DescricaoStatus>
+                  Para ativar o perfil é necessário que os campos obrigatórios
+                  indicados acima em cada categoria estejam preenchidos.
+                  Exemplo: “Atendimento 4/4”.
+                </DescricaoStatus>
+              </ContainerStatus>
+            </div>
 
             <PerfilRight>
               {step === 0 && <Profissional />}
