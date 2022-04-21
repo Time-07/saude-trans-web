@@ -8,10 +8,16 @@ export const Logo = styled.img`
 export const ContainerFooter = styled.footer`
   background: #744d83;
   display: flex;
-  justify-content: space-around;
   width: 100%;
-  height: 284px;
-  align-items: center;
+  height: 384px;
+  align-items: flex-end;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: 16px;
+  }
 `;
 export const Sobre = styled.div`
   width: 282px;
