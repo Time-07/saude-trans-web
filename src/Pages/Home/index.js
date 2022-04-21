@@ -61,14 +61,14 @@ const faqPost = [
     question:
       '1. Entendendo a questão da identidade de gênero e tratando as pessoas trans de acordo com suas identidades.',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Procurar conhecer os principais desafios e violências sofridas por uma pessoa trans no seu dia a dia é o primeiro passo para atender essas pessoas com humanidade e respeito. Ao se cadastrar na nossa plataforma você tem acesso a conteúdos que te ajudarão nesse sentido.',
   },
   {
     id: 2,
 
     question: '2. Criando um ambiente seguro de atendimento.',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Você já conversou com colegas, seu time ou o pessoal da clínica sobre como atender pessoas trans? É importante que todo o ambiente seja seguro, e não apenas o consultório ou sala de atendimento.',
   },
   {
     id: 3,
@@ -76,7 +76,7 @@ const faqPost = [
     question:
       '3. Anunciando o seu atendimento como inclusivo em relação às pessoas trans e as suas necessidades.',
     answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'Muitas pessoas trans não buscam o atendimento por receio de como serão tratadas. Demonstrar sua experiência, ou abertura com as questões trans, dá segurança para que essa pessoa possa te procurar. Nossa plataforma foi feita pensando exatamente em suprir essa necessidade!',
   },
 ];
 
@@ -91,7 +91,7 @@ function PageHome() {
           <WrapperTitulo>
             <Descricao>
               <TituloHome>
-                Respeito é um direito de todos, todas e todes.
+                Respeito é um direito de todas, todos e todes.
               </TituloHome>
               <Saude> Saúde, também.</Saude>
               <TextHome>
@@ -100,8 +100,9 @@ function PageHome() {
                 realidade atual de pessoas trans no Brasil todo.
               </TextHome>
               <TextHome>
-                Se você é ginecologista, psicólogo(a), endócrino, urologista ou
-                psiquiatra você pode nos ajudar a mudar esse cenário hoje mesmo.
+                Se você é profissional da ginecologia, psicologia,
+                endocrinologia, urologista ou psiquiatria você pode nos ajudar a
+                mudar esse cenário hoje mesmo.
               </TextHome>
               <ButtonTitulo to="/cadastro">Quero me cadastrar!</ButtonTitulo>
             </Descricao>
@@ -297,7 +298,7 @@ function PageHome() {
           </ButtonTitulo>
         </ContainerInformativoAjuda>
       </ContainerInicial>
-      <Footer />
+      <Footer height />
     </>
   );
 }
