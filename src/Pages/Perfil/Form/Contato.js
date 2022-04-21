@@ -8,6 +8,7 @@ import {
   ButtonSalvar,
   ContainerButton,
 } from './style';
+import { AtualizarDadosUsuario } from '../../../modules/user';
 import { conselhoCelular } from '../../../util/maskInput';
 import { showToast } from '../../../util/Toast';
 import InputMask from 'react-input-mask';
