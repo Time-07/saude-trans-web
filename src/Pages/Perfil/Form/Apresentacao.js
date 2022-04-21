@@ -7,22 +7,38 @@ import {
   ContainerButton,
   ContainerTextArea,
 } from './style';
+import { showToast } from '../../../util/Toast';
+import { AtualizarDadosUsuario } from '../../../modules/user';
 import { useFormik, ErrorMessage } from 'formik';
+import { useUserData } from '../../../context/useUserData';
 import * as yup from 'yup';
 import { Alerta } from '../../Login/style';
 
 const Apresentacao = () => {
+  const { user, setUser } = useUserData();
+
   const formik = useFormik({
     initialValues: {
-      experiencia: '',
-      curriculo: '',
+      experiencia: user.description || '',
+      curriculo: user.courses || '',
     },
     validationSchema: yup.object({
       experiencia: yup.string().required('O campo é obrigatório'),
       curriculo: yup.string().required('O campo é obrigatório'),
     }),
-    onSubmit: values => {
-      console.log(values);
+    onSubmit: async values => {
+      const dataForm = {
+        description: values.experiencia,
+        courses: values.curriculo,
+      };
+
+      try {
+        // await AtualizarDadosUsuario(dataForm);
+        setUser({ ...user, ...dataForm });
+        showToast('success', 'Dados Atualizados com sucesso');
+      } catch (error) {
+        showToast('error', 'Erro ao atualizar');
+      }
     },
   });
 
