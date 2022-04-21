@@ -54,7 +54,7 @@ const Cadastro = () => {
         {step === 3 && (
           <ModalAviso
             titulo="Por que pedimos o CRP*"
-            descricao="Validamos seu CRM para garantir a segurança das pessoas que acessam a
+            descricao="Validamos seu CRP para garantir a segurança das pessoas que acessam a
         plataforma e a legitimidade dos anúncios realizados."
           />
         )}
