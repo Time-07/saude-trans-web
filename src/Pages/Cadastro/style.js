@@ -323,7 +323,7 @@ export const Especialidades = styled.div`
   }
 `;
 
-export const ButtonFinal = styled.button`
+export const ButtonFinal = styled(Link)`
   width: 165px;
   height: 56px;
   padding: 16px 24px;
@@ -346,6 +346,7 @@ export const ButtonFinal = styled.button`
     }
   }
 `;
+
 export const IconErro = styled.img`
   width: 14px;
   height: 14px;

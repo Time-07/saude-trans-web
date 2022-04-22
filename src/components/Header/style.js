@@ -15,8 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 104px;
-  height: 64px;
+  padding: 10px;
 `;
 
 export const Icone = styled.img`

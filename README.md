@@ -14,7 +14,7 @@ O layout do projeto foi criado pelo  Ux Design do grupo Indianara, do camp da [i
 
  - [x] **Atualização dos dados**: Após logado os profissionais podem atualizar seus dados.
 
- Essas informações foram possíveis ser adquiridas pelo uso da [API](https://camp-api-docker-v3.herokuapp.com/api/v1/).
+ Essas informações foram possíveis ser adquiridas pelo uso da [API](https://diversaude-api.herokuapp.com/api/v1/).
 
 
 ### Conceitos abordados

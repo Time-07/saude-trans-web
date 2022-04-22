@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import LogoImg from '../../assets/logoo.jpeg';
+import LogoImg from '../../assets/logolilaso.png';
 import Apresentacao from './Form/Apresentacao';
 import Atendimento from './Form/Atendimento';
 import Contato from './Form/Contato';
 import Profissional from './Form/Profissional';
 import Footer from '../../components/Footer';
-import ModalAviso from '../../components/ModalAviso';
 import { useUserData } from '../../context/useUserData';
 import {
   ContainerPerfil,
@@ -64,7 +63,7 @@ function Perfil() {
           <ContainerMenuPerfil>
             <MenuItemHome to="/">Home</MenuItemHome>
             <MenuItem>Perfil</MenuItem>
-            <MenuItem>Informe-se</MenuItem>
+
             <MenuItem onClick={() => userLogout()}>Sair</MenuItem>
           </ContainerMenuPerfil>
         </ContainerPerfil>

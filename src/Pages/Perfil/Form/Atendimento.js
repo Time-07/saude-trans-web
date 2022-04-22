@@ -32,6 +32,7 @@ const Atendimento = () => {
     validationSchema: yup.object({}),
     onSubmit: async values => {
       const dataForm = {
+        id: user.id,
         value: values.precoConsulta,
         attendance: values.atendimento,
         healthPlan: values.convenio,
@@ -39,7 +40,7 @@ const Atendimento = () => {
       };
 
       try {
-        // await AtualizarDadosUsuario(dataForm);
+        await AtualizarDadosUsuario(dataForm);
         setUser({ ...user, ...dataForm });
         setStep(2);
         showToast('success', 'Dados Atualizados com sucesso');

@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Logo = styled.img`
-  width: 169px;
-  height: 104px;
+  width: 20%;
+  height: 20%;
 `;
+
 export const ContainerFooter = styled.footer`
   background: #744d83;
   display: flex;

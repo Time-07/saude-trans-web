@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoImg from '../../assets/logoo.jpeg';
+import LogoImg from '../../assets/logobranco.png';
 import Contato from '../../assets/email.svg';
 import {
   Logo,

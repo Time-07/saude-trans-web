@@ -89,14 +89,14 @@ const Profissional = () => {
         crmCrp: values.numeroConselho,
         state: values.estado,
         city: values.cidade,
-        address: values.endereco,
+        neighborhood: values.endereco,
         number: values.numeroEndereco,
         gender: values.identidadeGenero,
         specialty: values.especialidade,
       };
 
       try {
-        // await AtualizarDadosUsuario(dataForm);
+        await AtualizarDadosUsuario(dataForm);
         setUser({ ...user, ...dataForm });
         setStep(1);
         showToast('success', 'Dados Atualizados com sucesso');
