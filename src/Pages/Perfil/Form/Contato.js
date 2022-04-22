@@ -3,19 +3,15 @@ import {
   FormContato,
   TextoContato,
   ContainerInput,
-  Especialidades,
-  TitleEspecialista,
   ButtonSalvar,
   ContainerButton,
 } from './style';
 import { AtualizarDadosUsuario } from '../../../modules/user';
-import { conselhoCelular } from '../../../util/maskInput';
 import { showToast } from '../../../util/Toast';
 import InputMask from 'react-input-mask';
 import { useUserData } from '../../../context/useUserData';
-import { useFormik, ErrorMessage } from 'formik';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Alerta } from '../../Login/style';
 import Input from '../../../components/Input';
 
 const Contato = () => {
@@ -26,7 +22,6 @@ const Contato = () => {
       telefone: user.phone || '',
       whatsapp: user.cellPhone || '',
       email: user.email || '',
-      linkedIn: user.linkedin || '',
     },
     validationSchema: yup.object({
       whatsapp: yup.string().required('O campo é obrigatório'),
@@ -38,14 +33,14 @@ const Contato = () => {
 
     onSubmit: async values => {
       const dataForm = {
+        id: user.id,
         phone: values.telefone,
         cellPhone: values.whatsapp,
         email: values.email,
-        linkedin: values.linkedIn,
       };
 
       try {
-        // await AtualizarDadosUsuario(dataForm);
+        await AtualizarDadosUsuario(dataForm);
         setUser({ ...user, ...dataForm });
         setStep(3);
         showToast('success', 'Dados Atualizados com sucesso');
@@ -107,18 +102,7 @@ const Contato = () => {
           errorMsg={formik.errors.email}
         />
       </ContainerInput>
-      <ContainerInput>
-        <Input
-          name="linkedIn"
-          type="linkedIn"
-          label="LinkedIn (opcional)"
-          errors={formik.touched.linkedIn && formik.errors.linkedIn}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.linkedIn}
-          errorMsg={formik.errors.linkedIn}
-        />
-      </ContainerInput>
+
       <ContainerButton>
         <ButtonSalvar type="submit">Salvar e Continuar</ButtonSalvar>
       </ContainerButton>

@@ -9,7 +9,7 @@ import {
 } from './style';
 import { showToast } from '../../../util/Toast';
 import { AtualizarDadosUsuario } from '../../../modules/user';
-import { useFormik, ErrorMessage } from 'formik';
+import { useFormik } from 'formik';
 import { useUserData } from '../../../context/useUserData';
 import * as yup from 'yup';
 import { Alerta } from '../../Login/style';
@@ -28,12 +28,13 @@ const Apresentacao = () => {
     }),
     onSubmit: async values => {
       const dataForm = {
+        id: user.id,
         description: values.experiencia,
         courses: values.curriculo,
       };
 
       try {
-        // await AtualizarDadosUsuario(dataForm);
+        await AtualizarDadosUsuario(dataForm);
         setUser({ ...user, ...dataForm });
         showToast('success', 'Dados Atualizados com sucesso');
       } catch (error) {
