@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Container,
   Logo,
@@ -9,7 +9,7 @@ import {
   Icone,
   Home,
 } from './style';
-import LogoImg from '../../assets/logoo.jpeg';
+import LogoImg from '../../assets/logolilaso.png';
 import Iconee from '../../assets/inconsetaa.png';
 import Donwload from '../../assets/donwload.png';
 import Loginn from '../../assets/login.png';
