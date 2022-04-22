@@ -4,11 +4,11 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 const api = axios.create({
-  baseURL: 'https://camp-api-docker-v3.herokuapp.com/api/v1/',
+  baseURL: ' https://diversaude-api.herokuapp.com/api/v1/',
 });
 
 const ServicesAPIToken = axios.create({
-  baseURL: 'https://camp-api-docker-v3.herokuapp.com/api/v1/',
+  baseURL: ' https://diversaude-api.herokuapp.com/api/v1/',
 });
 
 ServicesAPIToken.interceptors.request.use(
